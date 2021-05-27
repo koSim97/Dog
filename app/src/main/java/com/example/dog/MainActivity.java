@@ -2,7 +2,6 @@ package com.example.dog;
 
 import android.os.Bundle;
 
-
 public class MainActivity extends TitleActivity {
 
     @Override
