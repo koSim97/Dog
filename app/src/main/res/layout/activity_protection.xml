@@ -58,13 +58,13 @@
 
         <Spinner
             android:id="@+id/spin_animal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <Spinner
             android:id="@+id/spin_breed"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
     </LinearLayout>
@@ -76,13 +76,13 @@
 
         <Spinner
             android:id="@+id/spin_sido"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <Spinner
             android:id="@+id/spin_sigungu"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
     </LinearLayout>
@@ -101,6 +101,11 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:background="#e3e3e3" />
+
+    <TextView
+        android:id="@+id/tv_resultCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"

@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,12 +18,11 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
 
     // rcAdapter에 들어갈 list
-    private ArrayList<Item> listItem = new ArrayList<Item>();
+    private final ArrayList<Item> listItem = new ArrayList<>();
 
 
 
@@ -53,8 +51,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
 
     class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView imgpopfile;
-        private TextView tvkindCd, tvhappenPlace, tvcareAddr;
+        private final ImageView imgpopfile;
+        private final TextView tvkindCd, tvhappenPlace, tvcareAddr;
 
 
         ItemViewHolder(View itemView) {

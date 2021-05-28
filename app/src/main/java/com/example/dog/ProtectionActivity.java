@@ -2,7 +2,6 @@ package com.example.dog;
 
 import com.example.dog.protection.*;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -35,7 +34,7 @@ public class ProtectionActivity extends TitleActivity {
 
     Spinner spSido, spSigungu, spAnimal, spBreed;
     Button btnStartdate, btnEnddate, btnSearch;
-    TextView tvStartdate, tvEnddate;
+    TextView tvStartdate, tvEnddate, tvResultCount;
 
     String tagName, xmlParser, codeParser, bgnde, endde, upr_cd, org_cd, upkind, kind;
 
@@ -59,6 +58,7 @@ public class ProtectionActivity extends TitleActivity {
         btnSearch = findViewById(R.id.btn_search);
         tvStartdate = findViewById(R.id.tv_startdate);
         tvEnddate = findViewById(R.id.tv_enddate);
+        tvResultCount = findViewById(R.id.tv_resultCount);
         sidoList = new ArrayList<>();
 
         // NetworkOnMainthreadException 파싱에러 해결을 위한 코드
@@ -1469,7 +1469,7 @@ public class ProtectionActivity extends TitleActivity {
         ArrayList<String> listCareAddr = new ArrayList<>();
         try {
             // XML 데이터를 읽어옴
-            URL url = new URL(serviceUrl + serviceKey + "&bgnde="+bgnde+"&endde="+endde+"&upr_cd="+upr_cd+"&org_cd="+org_cd+"&upkind="+upkind+"&kind="+kind);
+            URL url = new URL(serviceUrl + serviceKey + "&bgnde="+bgnde+"&endde="+endde+"&upr_cd="+upr_cd+"&org_cd="+org_cd+"&upkind="+upkind+"&kind="+kind+"&numOfRows=10000");
             InputStream is = url.openStream();
 
             XmlPullParserFactory factory = XmlPullParserFactory
@@ -1531,6 +1531,7 @@ public class ProtectionActivity extends TitleActivity {
         }
         // rcadapter의 값이 변경되었다는 것을 알려줍니다.
         rcAdapter.notifyDataSetChanged();
+        tvResultCount.setText(listKindCd.size() + "개의 검색결과");
     }
 
 }
