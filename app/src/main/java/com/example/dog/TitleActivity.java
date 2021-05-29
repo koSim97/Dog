@@ -20,7 +20,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class TitleActivity extends AppCompatActivity {
-    private String[] navItems = {"로그인","회원가입"};
+    private String[] navItems = {"로그인","회원가입", "동물보호소"};
     private ListView lvNavList;
     Toolbar toolbar;
     private DrawerLayout dlDrawer;
@@ -85,6 +85,10 @@ public class TitleActivity extends AppCompatActivity {
                 case 1:
                     Intent intent1 = new Intent(getApplicationContext(),JoinActivity.class);
                     startActivity(intent1);
+                    break;
+                case 2:
+                    Intent intent2 = new Intent(getApplicationContext(),ProtectionActivity.class);
+                    startActivity(intent2);
                     break;
             }
             dlDrawer.closeDrawer(lvNavList);
