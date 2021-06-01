@@ -20,7 +20,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class TitleActivity extends AppCompatActivity {
-    private String[] navItems = {"로그인","회원가입", "동물보호소"};
+    private String[] navItems = {"로그인","회원가입","동물보호소"};
     private ListView lvNavList;
     Toolbar toolbar;
     private DrawerLayout dlDrawer;
