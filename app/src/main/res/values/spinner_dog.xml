@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="kind_dog">
+        <item>시츄</item>
+        <item>코커스파니엘</item>
+        <item>불독</item>
+        <item>포메라니안</item>
+        <item>시바견</item>
+        <item>웰시코기</item>
+        <item>푸들</item>
+        <item>치와와</item>
+        <item>말티즈</item>
+    </string-array>
+</resources>
