@@ -91,9 +91,17 @@
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
-
-
+        <Button
+            android:id="@+id/join_btn_regit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Register"/>
+        <Button
+            android:id="@+id/join_btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BACK"/>
     </LinearLayout>
 
 </LinearLayout>
