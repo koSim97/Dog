@@ -79,7 +79,7 @@
             android:textSize="20dp"
             android:text="ID(EMAIL)"/>
         <EditText
-            android:id="@+id/join_edit_email"
+            android:id="@+id/join_edit_id"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

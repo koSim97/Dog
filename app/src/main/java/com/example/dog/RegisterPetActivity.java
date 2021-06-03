@@ -6,21 +6,55 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 public class RegisterPetActivity extends AppCompatActivity {
 
-
+    EditText etName;
+    EditText etAge;
+    RadioGroup grpSpecies;
+    RadioButton rdoDog;
+    RadioButton rdoCat;
+    Spinner dogBTypeSpinner;
+    RadioGroup grpCatBType;
+    RadioButton rdoBTA;
+    RadioButton rdoBTB;
+    RadioButton rdoBTAB;
+    RadioGroup grpSex;
+    RadioButton rdoMale;
+    RadioButton rdoFemale;
+    Spinner dogKindSpinner;
+    Spinner catKindSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_pet);
 
-        //강아지 종류 스피너(xml 사용)
-        Spinner DogKindSpinner = (Spinner)findViewById(R.id.regpet_spinner_dog);
+        etName = (EditText) findViewById(R.id.regpet_edit_name);
+        etAge = (EditText) findViewById(R.id.regpet_edit_age);
 
-        DogKindSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        grpSpecies = (RadioGroup) findViewById(R.id.regpet_grp_species);
+        rdoDog = (RadioButton) findViewById(R.id.regpet_rdo_dog);
+        rdoCat = (RadioButton) findViewById(R.id.regpet_rdo_cat);
+
+        grpCatBType = (RadioGroup) findViewById(R.id.regpet_grp_btype_cat);
+        rdoBTA = (RadioButton) findViewById(R.id.regpet_rdo_btype_a);
+        rdoBTB = (RadioButton) findViewById(R.id.regpet_rdo_btype_b);
+        rdoBTAB = (RadioButton) findViewById(R.id.regpet_rdo_btype_ab);
+
+        grpSex = (RadioGroup) findViewById(R.id.regpet_grp_sex);
+        rdoMale = (RadioButton) findViewById(R.id.regpet_rdo_male);
+        rdoFemale = (RadioButton) findViewById(R.id.regpet_rdo_female);
+
+        dogBTypeSpinner = (Spinner)findViewById(R.id.regpet_spinner_btype_dog);
+        dogKindSpinner = (Spinner)findViewById(R.id.regpet_spinner_dog);
+        catKindSpinner = (Spinner)findViewById(R.id.regpet_spinner_cat);
+
+        dogBTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 parent.getItemAtPosition(pos);
@@ -30,10 +64,17 @@ public class RegisterPetActivity extends AppCompatActivity {
             }
         });
 
-        //고양이 종류 스피너(어댑터 및 배열 사용)
-        Spinner CatKindSpinner = (Spinner)findViewById(R.id.regpet_spinner_cat);
+        dogKindSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                parent.getItemAtPosition(pos);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
 
-        CatKindSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        catKindSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 parent.getItemAtPosition(pos);
