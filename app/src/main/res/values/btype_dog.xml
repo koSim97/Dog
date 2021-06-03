@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="btype_dog">
+        <item>DEA-1</item>
+        <item>DEA1.1</item>
+        <item>DEA1.2</item>
+        <item>DEA2</item>
+        <item>DEA3</item>
+        <item>DEA4</item>
+        <item>DEA5</item>
+        <item>DEA6</item>
+    </string-array>
+</resources>

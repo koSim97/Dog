@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="kind_cat">
+        <item>페르시안</item>
+        <item>벵골</item>
+        <item>시암</item>
+        <item>브리티시 숏헤어</item>
+        <item>레그돌</item>
+        <item>먼치킨</item>
+        <item>러시안 블루</item>
+    </string-array>
+</resources>

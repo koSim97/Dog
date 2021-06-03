@@ -16,121 +16,172 @@
         android:text="REGISTER PET"
         android:textSize="30dp"/>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="450dp"
         android:orientation="vertical"
+        android:fillViewport="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
         >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="NAME"/>
-        <EditText
-            android:id="@+id/regpet_edit_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="20dp"
-            android:text="AGE"/>
-        <EditText
-            android:id="@+id/regpet_edit_age"
-            android:inputType="number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="20dp"
-            android:text="SEX"/>
-        <RadioGroup
-            android:id="@+id/regpet_grp_sex"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-            <RadioButton
-                android:id="@+id/regpet_rdo_male"
+            android:orientation="vertical">
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MALE"
-                android:textSize="20dp"/>
-            <RadioButton
-                android:id="@+id/regpet_rdo_female"
+                android:textSize="20dp"
+                android:text="NAME"/>
+            <EditText
+                android:id="@+id/regpet_edit_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:text="FEMALE"
-                android:textSize="20dp"/>
-        </RadioGroup>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="20dp"
-            android:text="SPECIES"/>
-        <RadioGroup
-            android:id="@+id/regpet_grp_species"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-            <RadioButton
-                android:id="@+id/regpet_rdo_dog"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:text="AGE"/>
+            <EditText
+                android:id="@+id/regpet_edit_age"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DOG"
-                android:textSize="20dp"/>
-            <RadioButton
-                android:id="@+id/regpet_rdo_cat"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:text="SPECIES"/>
+            <RadioGroup
+                android:id="@+id/regpet_grp_species"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <RadioButton
+                    android:id="@+id/regpet_rdo_dog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DOG"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/regpet_rdo_cat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:text="CAT"
+                    android:textSize="20dp"/>
+            </RadioGroup>
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:text="CAT"
-                android:textSize="20dp"/>
-        </RadioGroup>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="20dp"
-            android:text="KIND1"/>
-        <Spinner
-            android:id="@+id/regpet_spinner_dog"
-            android:entries="@array/kind_dog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="20dp"
-            android:text="KIND2"/>
-        <Spinner
-            android:id="@+id/regpet_spinner_cat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/regpet_btn_register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Register"/>
-        <Button
-            android:id="@+id/regpet_btn_back"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="BACK"/>
-    </LinearLayout>
-
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:text="BLOOD TYPE1"/>
+            <Spinner
+                android:id="@+id/regpet_spinner_btype_dog"
+                android:entries="@array/btype_dog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:text="BLOOD TYPE2"/>
+            <RadioGroup
+                android:id="@+id/regpet_grp_btype_cat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <RadioButton
+                    android:id="@+id/regpet_rdo_btype_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/regpet_rdo_btype_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:text="B"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/regpet_rdo_btype_ab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:text="AB"
+                    android:textSize="20dp"/>
+            </RadioGroup>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:text="SEX"/>
+            <RadioGroup
+                android:id="@+id/regpet_grp_sex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <RadioButton
+                    android:id="@+id/regpet_rdo_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MALE"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/regpet_rdo_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:text="FEMALE"
+                    android:textSize="20dp"/>
+            </RadioGroup>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:text="KIND1"/>
+            <Spinner
+                android:id="@+id/regpet_spinner_dog"
+                android:entries="@array/kind_dog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:text="KIND2"/>
+            <Spinner
+                android:id="@+id/regpet_spinner_cat"
+                android:entries="@array/kind_cat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/regpet_btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Register"/>
+    <Button
+        android:id="@+id/regpet_btn_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="BACK"/>
 </LinearLayout>

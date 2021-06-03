@@ -10,7 +10,6 @@ import android.widget.Spinner;
 
 public class RegisterPetActivity extends AppCompatActivity {
 
-    String[] CatKindItems = {"흰고양이", "검은고양이", "길고양이"};
 
 
     @Override
@@ -34,10 +33,6 @@ public class RegisterPetActivity extends AppCompatActivity {
         //고양이 종류 스피너(어댑터 및 배열 사용)
         Spinner CatKindSpinner = (Spinner)findViewById(R.id.regpet_spinner_cat);
 
-        ArrayAdapter<String> catAdapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, CatKindItems);
-        catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        CatKindSpinner.setAdapter(catAdapter);
         CatKindSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
