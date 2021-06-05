@@ -16,6 +16,8 @@
         tools:ignore="Instantiatable">
         <activity android:name=".PetProfileActivity"></activity>
         <activity android:name=".RegisterPetActivity" />
+        <activity android:name=".protection.ProtectionItemActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".JoinActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

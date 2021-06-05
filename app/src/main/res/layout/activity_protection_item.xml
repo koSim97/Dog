@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_animalcondition"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_horizontal"
+        android:text="공고현황"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="5dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#e3e3e3" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/popfile"
+                android:layout_width="400dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center_horizontal"></ImageView>
+
+
+            <View
+                android:id="@+id/View"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#e3e3e3" />
+
+            <TextView
+                android:id="@+id/kindCd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="품종"
+                android:textColor="@android:color/black"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="성별/색상/나이/체중"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#e3e3e3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_noticeNo"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="공고번호" />
+
+                <TextView
+                    android:id="@+id/noticeNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="공고번호"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_happenPlace"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="구조장소" />
+
+                    <TextView
+                        android:id="@+id/happenPlace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="구조장소"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_specialMark"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="특징" />
+
+                    <TextView
+                        android:id="@+id/specialMark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="특징"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_happenDt"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="접수일" />
+
+                    <TextView
+                        android:id="@+id/happenDt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="접수일"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_noticeDt"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="공고기간" />
+
+                    <TextView
+                        android:id="@+id/noticeDt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="공고기간"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#e3e3e3" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_careNm"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="보호기관" />
+
+                    <TextView
+                        android:id="@+id/careNm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="보호기관"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_careTel"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="연락처" />
+
+                    <TextView
+                        android:id="@+id/careTel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="연락처"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_careAddr"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="위치" />
+
+                    <TextView
+                        android:id="@+id/careAddr"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="위치"
+                        android:textColor="@android:color/black" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

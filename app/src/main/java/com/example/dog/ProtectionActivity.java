@@ -62,7 +62,7 @@ public class ProtectionActivity extends TitleActivity {
         sidoList = new ArrayList<>();
 
         // NetworkOnMainthreadException 파싱에러 해결을 위한 코드
-        if (Build.VERSION.SDK_INT > 9) {
+        if (Build.VERSION.SDK_INT >= 26) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                     .permitAll().build();
             StrictMode.setThreadPolicy(policy);
@@ -1457,16 +1457,27 @@ public class ProtectionActivity extends TitleActivity {
                 new DividerItemDecoration(recyclerView.getContext(),new LinearLayoutManager(this).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        rcAdapter = new RecyclerAdapter();
+        rcAdapter = new RecyclerAdapter(this);
         recyclerView.setAdapter(rcAdapter);
     }
 
     // 검색조건에 맞는 데이터를 파싱하고 RecyclerView에 적용
     private void getItem() {
-        ArrayList<String> listPopfile = new ArrayList<>();
-        ArrayList<String> listKindCd = new ArrayList<>();
-        ArrayList<String> listHappenPlace = new ArrayList<>();
-        ArrayList<String> listCareAddr = new ArrayList<>();
+        ArrayList<String> listPopfile = new ArrayList<>(); // 이미지 문자열
+        ArrayList<String> listKindCd = new ArrayList<>(); // 품종
+        ArrayList<String> listHappenPlace = new ArrayList<>(); // 발견장소
+        ArrayList<String> listCareAddr = new ArrayList<>(); // 보호소 주소
+        ArrayList<String> listSexCd = new ArrayList<>(); // 성별
+        ArrayList<String> listColorCd = new ArrayList<>(); // 색상
+        ArrayList<String> listAge = new ArrayList<>(); // 나이
+        ArrayList<String> listWeight = new ArrayList<>(); // 체중
+        ArrayList<String> listNoticeNo = new ArrayList<>(); // 공고번호
+        ArrayList<String> listSpecialMark = new ArrayList<>(); // 특징
+        ArrayList<String> listHappenDt = new ArrayList<>(); // 접수일
+        ArrayList<String> listNoticeSdt = new ArrayList<>(); // 공고시작일
+        ArrayList<String> listNoticeEdt = new ArrayList<>(); // 공고종료일
+        ArrayList<String> listCareNm = new ArrayList<>(); // 보호소명
+        ArrayList<String> listCareTel = new ArrayList<>(); // 보호소 연락처
         try {
             // XML 데이터를 읽어옴
             URL url = new URL(serviceUrl + serviceKey + "&bgnde="+bgnde+"&endde="+endde+"&upr_cd="+upr_cd+"&org_cd="+org_cd+"&upkind="+upkind+"&kind="+kind+"&numOfRows=10000");
@@ -1504,6 +1515,39 @@ public class ProtectionActivity extends TitleActivity {
                     if (tagName.equals("popfile")) {
                         listPopfile.add(parser.getText());
                     }
+                    if (tagName.equals("sexCd")) {
+                        listSexCd.add(parser.getText());
+                    }
+                    if (tagName.equals("colorCd")) {
+                        listColorCd.add(parser.getText());
+                    }
+                    if (tagName.equals("age")) {
+                        listAge.add(parser.getText());
+                    }
+                    if (tagName.equals("weight")) {
+                        listWeight.add(parser.getText());
+                    }
+                    if (tagName.equals("noticeNo")) {
+                        listNoticeNo.add(parser.getText());
+                    }
+                    if (tagName.equals("specialMark")) {
+                        listSpecialMark.add(parser.getText());
+                    }
+                    if (tagName.equals("happenDt")) {
+                        listHappenDt.add(parser.getText());
+                    }
+                    if (tagName.equals("noticeSdt")) {
+                        listNoticeSdt.add(parser.getText());
+                    }
+                    if (tagName.equals("noticeEdt")) {
+                        listNoticeEdt.add(parser.getText());
+                    }
+                    if (tagName.equals("careNm")) {
+                        listCareNm.add(parser.getText());
+                    }
+                    if (tagName.equals("careTel")) {
+                        listCareTel.add(parser.getText());
+                    }
 
                 } else if (eventType == XmlPullParser.END_TAG) {
 
@@ -1519,17 +1563,28 @@ public class ProtectionActivity extends TitleActivity {
         } catch (Exception e) { }
 
         for (int i = 0; i < listKindCd.size(); i++) {
-            // 각 List의 값들을 data 객체에 set 해줍니다.
+            // 각 List의 값들을 data 객체에 set
             Item item = new Item();
             item.setPopfile(listPopfile.get(i));
             item.setKindCd(listKindCd.get(i));
             item.setHappenPlace(listHappenPlace.get(i));
             item.setCareAddr(listCareAddr.get(i));
+            item.setSexCd(listSexCd.get(i));
+            item.setColorCd(listColorCd.get(i));
+            item.setAge(listAge.get(i));
+            item.setWeight(listWeight.get(i));
+            item.setNoticeNo(listNoticeNo.get(i));
+            item.setSpecialMark(listSpecialMark.get(i));
+            item.setHappenDt(listHappenDt.get(i));
+            item.setNoticeSdt(listNoticeSdt.get(i));
+            item.setNoticeEdt(listNoticeEdt.get(i));
+            item.setCareNm(listCareNm.get(i));
+            item.setCareTel(listCareTel.get(i));
 
-            // 각 값이 들어간 item을 rcadapter에 추가합니다.
+            // 각 값이 들어간 item을 rcadapter에 추가
             rcAdapter.addItem(item);
         }
-        // rcadapter의 값이 변경되었다는 것을 알려줍니다.
+        // rcadapter의 값이 변경되었다는 것을 알려줌
         rcAdapter.notifyDataSetChanged();
         tvResultCount.setText(listKindCd.size() + "개의 검색결과");
     }
