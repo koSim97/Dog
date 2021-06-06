@@ -29,7 +29,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.database.annotations.NotNull;
 
 
 public class LoginActivity extends TitleActivity implements GoogleApiClient.OnConnectionFailedListener {
@@ -117,7 +116,7 @@ public class LoginActivity extends TitleActivity implements GoogleApiClient.OnCo
 
 
     @Override
-    public void onConnectionFailed(@NotNull ConnectionResult connectionResult) {
+    public void onConnectionFailed(ConnectionResult connectionResult) {
 
     }
 }
