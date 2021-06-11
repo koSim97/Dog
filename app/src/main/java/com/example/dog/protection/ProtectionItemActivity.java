@@ -3,8 +3,11 @@ package com.example.dog.protection;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +24,7 @@ public class ProtectionItemActivity extends ProtectionActivity {
 
     ImageView popfile;
     TextView kindCd, info, noticeNo, happenPlace, specialMark, happenDt, noticeDt, careNm, careTel, careAddr;
+    Button btnCall;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class ProtectionItemActivity extends ProtectionActivity {
         careNm = findViewById(R.id.careNm);
         careTel = findViewById(R.id.careTel);
         careAddr = findViewById(R.id.careAddr);
+        btnCall = findViewById(R.id.btn_call);
 
         Intent intent = getIntent();
 
@@ -55,6 +60,17 @@ public class ProtectionItemActivity extends ProtectionActivity {
         String strPopfile = intent.getStringExtra("popfile");
 
         new popfileToImage().execute(strPopfile);
+
+        btnCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String tel =careTel.getText().toString();
+                Intent intent =new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ tel));
+
+                startActivity(intent);
+            }
+        });
     }
 
         private class popfileToImage extends AsyncTask<String,Void, Bitmap> {
