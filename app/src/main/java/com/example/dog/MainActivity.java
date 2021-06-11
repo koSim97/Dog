@@ -7,8 +7,6 @@ import android.os.Bundle;
 
 public class MainActivity extends TitleActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
