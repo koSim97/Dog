@@ -1,12 +1,14 @@
 package com.example.dog;
 
 import com.example.dog.protection.*;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -66,6 +68,12 @@ public class ProtectionActivity extends TitleActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                     .permitAll().build();
             StrictMode.setThreadPolicy(policy);
+        }
+
+        if(FirebaseAuth.getInstance().getCurrentUser() == null){
+            //로그인이 안되어 있으시 접속 못하게 막음
+            finish();
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         }
 
         // 시도 값 파싱하여 지명은 스피너에 적용, 코드는 String 배열에 적용

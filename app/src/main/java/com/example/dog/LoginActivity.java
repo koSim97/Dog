@@ -66,12 +66,50 @@ public class LoginActivity extends TitleActivity implements GoogleApiClient.OnCo
 
         mAuth = FirebaseAuth.getInstance();
 
+        if(mAuth.getCurrentUser() != null){
+            //이미 로그인 되었다면 이 액티비티를 종료
+            finish();
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        }
+
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = etId.getText().toString().trim();
+                String pwd = etPassword.getText().toString().trim();
+                mAuth.signInWithEmailAndPassword(email,pwd)
+                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if(task.isSuccessful()){
+                                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                    startActivity(intent);
+                                } else {
+                                    Toast.makeText(LoginActivity.this,"로그인 오류",Toast.LENGTH_SHORT).show();
+                                    Log.d("test",""+task.getException());
+                                }
+
+                            }
+                        });
+            }
+        });
+
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
                 startActivityForResult(signInIntent,RC_SIGN_IN);
+            }
+        });
+
+        btnJoin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),JoinActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

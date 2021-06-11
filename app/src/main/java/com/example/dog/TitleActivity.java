@@ -1,14 +1,17 @@
 package com.example.dog;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,8 +22,16 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+
 public class TitleActivity extends AppCompatActivity {
-    private String[] navItems = {"로그인","회원가입","동물보호소"};
+    private String[] navItems = {"동물보호소","로그아웃"};
     private ListView lvNavList;
     Toolbar toolbar;
     private DrawerLayout dlDrawer;
@@ -79,16 +90,13 @@ public class TitleActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> adapter, View view, int position, long id){
             switch(position){
                 case 0:
-                    Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),ProtectionActivity.class);
                     startActivity(intent);
                     break;
                 case 1:
-                    Intent intent1 = new Intent(getApplicationContext(),JoinActivity.class);
+                    FirebaseAuth.getInstance().signOut();
+                    Intent intent1 = new Intent(getApplicationContext(),LoginActivity.class);
                     startActivity(intent1);
-                    break;
-                case 2:
-                    Intent intent2 = new Intent(getApplicationContext(),ProtectionActivity.class);
-                    startActivity(intent2);
                     break;
             }
             dlDrawer.closeDrawer(lvNavList);
