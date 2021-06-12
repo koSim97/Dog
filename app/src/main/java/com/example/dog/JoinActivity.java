@@ -35,6 +35,7 @@ public class JoinActivity extends AppCompatActivity {
     RadioButton rdoMan;
     RadioButton rdoWoman;
     Button joinBtn;
+    Button btnBack;
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -50,6 +51,7 @@ public class JoinActivity extends AppCompatActivity {
         rdoMan = (RadioButton) findViewById(R.id.join_rdo_man);
         rdoWoman = (RadioButton) findViewById(R.id.join_rdo_woman);
         joinBtn = (Button) findViewById(R.id.join_btn_join);
+        btnBack = (Button) findViewById(R.id.join_btn_back);
 
         firebaseAuth = FirebaseAuth.getInstance();
         joinBtn.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +104,12 @@ public class JoinActivity extends AppCompatActivity {
                         }
                     }
                 });
+            }
+        });
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

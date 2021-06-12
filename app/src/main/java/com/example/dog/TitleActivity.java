@@ -98,18 +98,18 @@ public class TitleActivity extends AppCompatActivity {
                     startActivity(intent1);
                     break;
                 case 2:
-                    FirebaseAuth.getInstance().signOut();
                     Intent intent2 = new Intent(getApplicationContext(),RegisterPetActivity.class);
                     startActivity(intent2);
                     break;
                 case 3:
-                    FirebaseAuth.getInstance().signOut();
                     Intent intent3 = new Intent(getApplicationContext(),PetProfileActivity.class);
                     startActivity(intent3);
                     break;
                 case 4:
                     FirebaseAuth.getInstance().signOut();
+                    Toast.makeText(TitleActivity.this, "로그아웃되었습니다.", Toast.LENGTH_SHORT).show();
                     Intent intent4 = new Intent(getApplicationContext(),LoginActivity.class);
+                    finish();
                     startActivity(intent4);
                     break;
             }

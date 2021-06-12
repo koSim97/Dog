@@ -6,10 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterPetActivity extends AppCompatActivity {
 
@@ -28,6 +33,10 @@ public class RegisterPetActivity extends AppCompatActivity {
     RadioButton rdoFemale;
     Spinner dogKindSpinner;
     Spinner catKindSpinner;
+    Button btnRegister;
+    Button btnBack;
+    private FirebaseDatabase FD;
+    private DatabaseReference DR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +62,13 @@ public class RegisterPetActivity extends AppCompatActivity {
         dogBTypeSpinner = (Spinner)findViewById(R.id.regpet_spinner_btype_dog);
         dogKindSpinner = (Spinner)findViewById(R.id.regpet_spinner_dog);
         catKindSpinner = (Spinner)findViewById(R.id.regpet_spinner_cat);
+
+        btnRegister = (Button)findViewById(R.id.regpet_btn_register);
+        btnBack = (Button)findViewById(R.id.regpet_btn_back);
+
+        FD = FirebaseDatabase.getInstance();
+        DR = FD.getReference();
+
 
         dogBTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -84,5 +100,27 @@ public class RegisterPetActivity extends AppCompatActivity {
 
             }
         });
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String pName = etName.getText().toString();
+                String pAge = etAge.getText().toString();
+                registerPet(pName, pAge);
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+    }
+
+    public void registerPet(String pName, String pAge){
+        pet pet = new pet(pName, pAge);
+        DR.child("Pets").child(pName).setValue(pet);
     }
 }
