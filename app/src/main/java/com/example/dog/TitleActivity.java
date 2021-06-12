@@ -31,7 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class TitleActivity extends AppCompatActivity {
-    private String[] navItems = {"동물보호소","근처병원찾기","로그아웃","펫 등록하기","펫 프로필"};
+    private String[] navItems = {"동물보호소","근처병원찾기","펫 등록하기","펫 프로필","로그아웃"};
     private ListView lvNavList;
     Toolbar toolbar;
     private DrawerLayout dlDrawer;
