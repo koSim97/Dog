@@ -14,7 +14,9 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="REGISTER PET"
-        android:textSize="30dp"/>
+        android:textSize="30dp"
+        android:textColor="@color/colortest"
+        android:textStyle="bold" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,6 +27,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
+        android:scrollbarThumbVertical="@color/colorsub1"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,7 +41,8 @@
             <EditText
                 android:id="@+id/regpet_edit_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colortest1"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -49,7 +53,8 @@
                 android:id="@+id/regpet_edit_age"
                 android:inputType="number"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colortest1"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -67,14 +72,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DOG"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:buttonTint="@color/colortest1"/>
                 <RadioButton
                     android:id="@+id/regpet_rdo_cat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
                     android:text="CAT"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:buttonTint="@color/colortest1"/>
             </RadioGroup>
             <TextView
                 android:layout_width="wrap_content"
@@ -86,7 +93,8 @@
                 android:id="@+id/regpet_spinner_btype_dog"
                 android:entries="@array/btype_dog"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorsub3"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -104,21 +112,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="A"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:buttonTint="@color/colortest1"/>
                 <RadioButton
                     android:id="@+id/regpet_rdo_btype_b"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="60dp"
                     android:text="B"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:buttonTint="@color/colortest1"/>
                 <RadioButton
                     android:id="@+id/regpet_rdo_btype_ab"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="60dp"
                     android:text="AB"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:buttonTint="@color/colortest1"/>
             </RadioGroup>
             <TextView
                 android:layout_width="wrap_content"
@@ -137,14 +148,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="MALE"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:buttonTint="@color/colortest1"/>
                 <RadioButton
                     android:id="@+id/regpet_rdo_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
                     android:text="FEMALE"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:buttonTint="@color/colortest1"/>
             </RadioGroup>
             <TextView
                 android:layout_width="wrap_content"
@@ -156,7 +169,8 @@
                 android:id="@+id/regpet_spinner_dog"
                 android:entries="@array/kind_dog"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorsub3"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -167,7 +181,8 @@
                 android:id="@+id/regpet_spinner_cat"
                 android:entries="@array/kind_cat"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorsub3" />
         </LinearLayout>
     </ScrollView>
     <Button
@@ -176,12 +191,19 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="Register"/>
+        android:text="Register"
+        android:textSize="21dp"
+        android:background="@drawable/rounded"
+        android:textColor="@color/colorwhite" />
     <Button
         android:id="@+id/regpet_btn_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="BACK"/>
+        android:text="BACK"
+        android:layout_marginTop="10dp"
+        android:textSize="21dp"
+        android:background="@drawable/rounded"
+        android:textColor="@color/colorwhite" />
 </LinearLayout>

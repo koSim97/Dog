@@ -14,7 +14,9 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="PET PROFILE"
-        android:textSize="30dp"/>
+        android:textSize="30dp"
+        android:textColor="@color/colortest"
+        android:textStyle="bold"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="450dp"
@@ -24,6 +26,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
+        android:scrollbarThumbVertical="@color/colorsub1"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,7 +45,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
@@ -76,12 +78,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="364dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="35dp"
                     android:text="BLOOD TYPE"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp" />
                 <TextView
                     android:id="@+id/petprof_text_btype"
                     android:layout_width="match_parent"
@@ -137,12 +140,20 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="UPDATE"/>
+        android:text="UPDATE"
+        android:background="@drawable/rounded"
+        android:textColor="@color/colorwhite"
+        android:textSize="21dp"
+        />
     <Button
         android:id="@+id/petprof_btn_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="BACK"/>
+        android:layout_marginTop="10dp"
+        android:text="BACK"
+        android:background="@drawable/rounded"
+        android:textColor="@color/colorwhite"
+        android:textSize="21dp"/>
 </LinearLayout>

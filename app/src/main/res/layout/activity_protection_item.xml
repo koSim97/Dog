@@ -8,9 +8,11 @@
     <TextView
         android:id="@+id/tv_animalcondition"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:text="공고현황"
+        android:textColor="@color/colortest"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
     <View
@@ -19,7 +21,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:background="#e3e3e3" />
+        android:background="@color/colortest1" />
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -28,7 +30,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <ImageView
                 android:id="@+id/popfile"
@@ -44,15 +47,16 @@
                 android:layout_centerInParent="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="#e3e3e3" />
+                android:background="@color/colortest1" />
 
             <TextView
                 android:id="@+id/kindCd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="mat"
                 android:text="품종"
                 android:textColor="@android:color/black"
-                android:textSize="25dp" />
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/info"
@@ -68,18 +72,20 @@
                 android:layout_centerInParent="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="#e3e3e3" />
+                android:background="@color/colortest1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                >
 
                 <TextView
                     android:id="@+id/tv_noticeNo"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="공고번호" />
+                    android:text="공고번호"
+                    android:textSize="18dp"/>
 
                 <TextView
                     android:id="@+id/noticeNo"
@@ -97,13 +103,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    >
 
                     <TextView
                         android:id="@+id/tv_happenPlace"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="구조장소" />
+                        android:text="구조장소"
+                        android:textSize="18dp"/>
 
                     <TextView
                         android:id="@+id/happenPlace"
@@ -129,7 +137,8 @@
                         android:id="@+id/tv_specialMark"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="특징" />
+                        android:text="특징"
+                        android:textSize="18dp"/>
 
                     <TextView
                         android:id="@+id/specialMark"
@@ -155,7 +164,8 @@
                         android:id="@+id/tv_happenDt"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="접수일" />
+                        android:text="접수일"
+                        android:textSize="18dp"/>
 
                     <TextView
                         android:id="@+id/happenDt"
@@ -181,7 +191,8 @@
                         android:id="@+id/tv_noticeDt"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="공고기간" />
+                        android:text="공고기간"
+                        android:textSize="18dp"/>
 
                     <TextView
                         android:id="@+id/noticeDt"
@@ -200,7 +211,7 @@
                 android:layout_centerInParent="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="#e3e3e3" />
+                android:background="@color/colortest1"/>
 
 
             <LinearLayout
@@ -217,7 +228,8 @@
                         android:id="@+id/tv_careNm"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="보호기관" />
+                        android:text="보호기관"
+                        android:textSize="18dp"/>
 
                     <TextView
                         android:id="@+id/careNm"
@@ -243,7 +255,8 @@
                         android:id="@+id/tv_careTel"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="연락처" />
+                        android:text="연락처"
+                        android:textSize="18dp"/>
 
                     <TextView
                         android:id="@+id/careTel"
@@ -270,7 +283,8 @@
                         android:id="@+id/tv_careAddr"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="위치" />
+                        android:text="위치"
+                        android:textSize="18dp"/>
 
                     <TextView
                         android:id="@+id/careAddr"
@@ -281,15 +295,6 @@
 
                 </LinearLayout>
             </LinearLayout>
-
-            <Button
-                android:id="@+id/btn_call"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:onClick="onClick"
-                android:text="보호소로 전화" />
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

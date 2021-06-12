@@ -11,44 +11,65 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="동물보호관리시스템 공고 조회"
-        android:textSize="30sp" />
+        android:textSize="40sp"
+        android:fontFamily="@font/custom_font_family"
+        android:textStyle="bold"
+        android:textColor="@color/colortest1"/>
 
     <TableRow
         android:id="@+id/tableDate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <TextView
             android:id="@+id/tv_startdate"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:ems="10"
             android:inputType="date"
-            android:text="검색 시작일" />
+            android:text="검색 시작일"
+            android:textSize="20dp"
+            android:fontFamily="@font/custom_font_family"/>
 
         <Button
             android:id="@+id/btn_startdate"
             android:layout_width="70dp"
             android:layout_height="35dp"
             android:onClick="startDatePicker"
-            android:text="선택" />
+            android:text="선택"
+            android:textSize="22dp"
+            android:fontFamily="@font/custom_font_family"
+            android:background="@drawable/rounded"
+            android:textColor="@color/colorwhite"
+            />
 
         <TextView
             android:id="@+id/tv_enddate"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:ems="10"
             android:inputType="date"
-            android:text="검색 종료일" />
+            android:text="검색 종료일"
+            android:textSize="20dp"
+            android:fontFamily="@font/custom_font_family"/>
 
         <Button
             android:id="@+id/btn_enddate"
             android:layout_width="70dp"
             android:layout_height="35dp"
             android:onClick="endDatePicker"
-            android:text="선택" />
+            android:text="선택"
+            android:textSize="22dp"
+            android:fontFamily="@font/custom_font_family"
+            android:background="@drawable/rounded"
+            android:textColor="@color/colorwhite"/>
     </TableRow>
 
     <LinearLayout
@@ -91,7 +112,13 @@
         android:id="@+id/btn_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:text="검색"
+        android:textSize="30dp"
+        android:fontFamily="@font/custom_font_family"
+        android:background="@drawable/rounded"
+        android:textColor="@color/colorwhite"
         android:onClick="onClick"/>
 
     <View
@@ -100,7 +127,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:background="#e3e3e3" />
+        android:background="@color/colorsub1" />
 
     <TextView
         android:id="@+id/tv_resultCount"
