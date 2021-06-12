@@ -11,7 +11,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -39,8 +41,8 @@ public class RegisterPetActivity extends AppCompatActivity {
     private FirebaseDatabase FD;
     private DatabaseReference DR;
     private FirebaseAuth firebaseAuth;
-    FirebaseUser user;
-    String uid;
+    private FirebaseUser user;
+    private String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +116,7 @@ public class RegisterPetActivity extends AppCompatActivity {
                 String pName = etName.getText().toString();
                 String pAge = etAge.getText().toString();
                 registerPet(pName, pAge);
+                finish();
             }
         });
 
@@ -128,6 +131,11 @@ public class RegisterPetActivity extends AppCompatActivity {
 
     public void registerPet(String pName, String pAge){
         pet pet = new pet(pName, pAge);
-        DR.child("Users").child(uid).child("Pets").child(pName).setValue(pet);
+        DR.child("Users").child(uid).child("Pet").setValue(pet).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(RegisterPetActivity.this, "펫 정보가 등록되었습니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

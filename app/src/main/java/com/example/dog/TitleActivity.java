@@ -31,7 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class TitleActivity extends AppCompatActivity {
-    private String[] navItems = {"동물보호소","근처병원찾기","펫 등록하기","펫 프로필","로그아웃"};
+    private String[] navItems = {"홈으로","동물보호관리시스템 조회","동물병원 찾기","펫 등록하기","펫 프로필 보기","로그아웃"};
     private ListView lvNavList;
     Toolbar toolbar;
     private DrawerLayout dlDrawer;
@@ -90,27 +90,31 @@ public class TitleActivity extends AppCompatActivity {
         public void onItemClick(AdapterView<?> adapter, View view, int position, long id){
             switch(position){
                 case 0:
-                    Intent intent = new Intent(getApplicationContext(),ProtectionActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
                     break;
                 case 1:
-                    Intent intent1 = new Intent(getApplicationContext(),MapActivity.class);
+                    Intent intent1 = new Intent(getApplicationContext(),ProtectionActivity.class);
                     startActivity(intent1);
                     break;
                 case 2:
-                    Intent intent2 = new Intent(getApplicationContext(),RegisterPetActivity.class);
+                    Intent intent2 = new Intent(getApplicationContext(),MapActivity.class);
                     startActivity(intent2);
                     break;
                 case 3:
-                    Intent intent3 = new Intent(getApplicationContext(),PetProfileActivity.class);
+                    Intent intent3 = new Intent(getApplicationContext(),RegisterPetActivity.class);
                     startActivity(intent3);
                     break;
                 case 4:
+                    Intent intent4 = new Intent(getApplicationContext(),PetProfileActivity.class);
+                    startActivity(intent4);
+                    break;
+                case 5:
                     FirebaseAuth.getInstance().signOut();
                     Toast.makeText(TitleActivity.this, "로그아웃되었습니다.", Toast.LENGTH_SHORT).show();
-                    Intent intent4 = new Intent(getApplicationContext(),LoginActivity.class);
+                    Intent intent5 = new Intent(getApplicationContext(),LoginActivity.class);
                     finish();
-                    startActivity(intent4);
+                    startActivity(intent5);
                     break;
             }
             dlDrawer.closeDrawer(lvNavList);
