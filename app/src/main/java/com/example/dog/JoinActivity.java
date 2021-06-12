@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class JoinActivity extends TitleActivity {
+public class JoinActivity extends AppCompatActivity {
 
     EditText etName;
     EditText etAge;
@@ -62,7 +62,8 @@ public class JoinActivity extends TitleActivity {
                 mDialog.setMessage("가입중입니다...");
                 mDialog.show();
 
-                firebaseAuth.createUserWithEmailAndPassword(email, pwd).addOnCompleteListener(JoinActivity.this, new OnCompleteListener<AuthResult>() {
+                firebaseAuth.createUserWithEmailAndPassword(email, pwd)
+                        .addOnCompleteListener(JoinActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
