@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -37,6 +38,9 @@ public class RegisterPetActivity extends AppCompatActivity {
     Button btnBack;
     private FirebaseDatabase FD;
     private DatabaseReference DR;
+    private FirebaseAuth firebaseAuth;
+    FirebaseUser user;
+    String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +72,9 @@ public class RegisterPetActivity extends AppCompatActivity {
 
         FD = FirebaseDatabase.getInstance();
         DR = FD.getReference();
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+        uid = user.getUid();
 
 
         dogBTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -121,6 +128,6 @@ public class RegisterPetActivity extends AppCompatActivity {
 
     public void registerPet(String pName, String pAge){
         pet pet = new pet(pName, pAge);
-        DR.child("Pets").child(pName).setValue(pet);
+        DR.child("Users").child(uid).child("Pets").child(pName).setValue(pet);
     }
 }
