@@ -5,18 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".ProtectionActivity"
     android:layout_marginLeft="30dp"
     android:layout_marginRight="30dp"
-    >
+    tools:context=".ProtectionActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:gravity="center"
         android:text="FIND MY PET!!"
         android:textSize="40sp"
         android:fontFamily="@font/custom_font_family"
@@ -24,9 +22,9 @@
         android:textColor="@color/colortest1"/>
 
     <LinearLayout
-        android:id="@+id/tableDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         >
 
         <TextView
@@ -34,6 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:layout_marginLeft="10dp"
             android:ems="10"
             android:inputType="date"
             android:text="START DATE"
@@ -57,13 +56,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
         >
         <TextView
             android:id="@+id/tv_enddate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:layout_marginLeft="10dp"
             android:ems="10"
             android:inputType="date"
             android:text="END DATE"
@@ -92,6 +92,7 @@
             android:id="@+id/spin_animal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:layout_weight="1" />
 
         <Spinner
@@ -154,4 +155,6 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:clipToPadding="false"/>
+
+
 </LinearLayout>
