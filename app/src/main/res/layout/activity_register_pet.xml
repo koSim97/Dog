@@ -16,7 +16,8 @@
         android:text="REGISTER PET"
         android:textSize="30dp"
         android:textColor="@color/colortest"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/custom_font_family"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -36,8 +37,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="NAME"/>
+                android:textSize="24dp"
+                android:text="NAME"
+                android:fontFamily="@font/custom_font_family"/>
             <EditText
                 android:id="@+id/regpet_edit_name"
                 android:layout_width="match_parent"
@@ -47,8 +49,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:textSize="20dp"
-                android:text="AGE"/>
+                android:textSize="24dp"
+                android:text="AGE"
+                android:fontFamily="@font/custom_font_family"/>
             <EditText
                 android:id="@+id/regpet_edit_age"
                 android:inputType="number"
@@ -59,8 +62,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:textSize="20dp"
-                android:text="SEX"/>
+                android:textSize="24dp"
+                android:text="SEX"
+                android:fontFamily="@font/custom_font_family"/>
             <RadioGroup
                 android:id="@+id/regpet_grp_sex"
                 android:layout_width="match_parent"
@@ -72,23 +76,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="MALE"
-                    android:textSize="20dp"
-                    android:buttonTint="@color/colortest1"/>
+                    android:textSize="22dp"
+                    android:buttonTint="@color/colortest1"
+                    android:fontFamily="@font/custom_font_family"/>
                 <RadioButton
                     android:id="@+id/regpet_rdo_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
                     android:text="FEMALE"
-                    android:textSize="20dp"
-                    android:buttonTint="@color/colortest1"/>
+                    android:textSize="22dp"
+                    android:buttonTint="@color/colortest1"
+                    android:fontFamily="@font/custom_font_family"/>
             </RadioGroup>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:textSize="20dp"
-                android:text="SPECIES"/>
+                android:textSize="24dp"
+                android:text="SPECIES"
+                android:fontFamily="@font/custom_font_family"/>
             <RadioGroup
                 android:id="@+id/regpet_grp_species"
                 android:layout_width="match_parent"
@@ -100,16 +107,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DOG"
-                    android:textSize="20dp"
-                    android:buttonTint="@color/colortest1"/>
+                    android:textSize="22dp"
+                    android:buttonTint="@color/colortest1"
+                    android:fontFamily="@font/custom_font_family"/>
                 <RadioButton
                     android:id="@+id/regpet_rdo_cat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="80dp"
                     android:text="CAT"
-                    android:textSize="20dp"
-                    android:buttonTint="@color/colortest1"/>
+                    android:textSize="22dp"
+                    android:buttonTint="@color/colortest1"
+                    android:fontFamily="@font/custom_font_family"/>
             </RadioGroup>
 
             <LinearLayout
@@ -122,8 +131,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textSize="20dp"
-                    android:text="BLOOD TYPE_DOG"/>
+                    android:textSize="24dp"
+                    android:text="BLOOD TYPE_DOG"
+                    android:fontFamily="@font/custom_font_family"
+                    />
                 <Spinner
                     android:id="@+id/regpet_spinner_btype_dog"
                     android:entries="@array/btype_dog"
@@ -134,8 +145,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textSize="20dp"
-                    android:text="KIND_DOG"/>
+                    android:textSize="24dp"
+                    android:text="KIND_DOG"
+                    android:fontFamily="@font/custom_font_family"
+                    />
                 <Spinner
                     android:id="@+id/regpet_spinner_dog"
                     android:entries="@array/kind_dog"
@@ -154,8 +167,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textSize="20dp"
-                    android:text="BLOOD TYPE_CAT"/>
+                    android:textSize="24dp"
+                    android:text="BLOOD TYPE_CAT"
+                    android:fontFamily="@font/custom_font_family"/>
                 <RadioGroup
                     android:id="@+id/regpet_grp_btype_cat"
                     android:layout_width="match_parent"
@@ -167,31 +181,35 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="A"
-                        android:textSize="20dp"
-                        android:buttonTint="@color/colortest1"/>
+                        android:textSize="22dp"
+                        android:buttonTint="@color/colortest1"
+                        android:fontFamily="@font/custom_font_family"/>
                     <RadioButton
                         android:id="@+id/regpet_rdo_btype_b"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="60dp"
                         android:text="B"
-                        android:textSize="20dp"
-                        android:buttonTint="@color/colortest1"/>
+                        android:textSize="22dp"
+                        android:buttonTint="@color/colortest1"
+                        android:fontFamily="@font/custom_font_family"/>
                     <RadioButton
                         android:id="@+id/regpet_rdo_btype_ab"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="60dp"
                         android:text="AB"
-                        android:textSize="20dp"
-                        android:buttonTint="@color/colortest1"/>
+                        android:textSize="22dp"
+                        android:buttonTint="@color/colortest1"
+                        android:fontFamily="@font/custom_font_family"/>
                 </RadioGroup>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:textSize="20dp"
-                    android:text="KIND_CAT"/>
+                    android:textSize="24dp"
+                    android:text="KIND_CAT"
+                    android:fontFamily="@font/custom_font_family"/>
                 <Spinner
                     android:id="@+id/regpet_spinner_cat"
                     android:entries="@array/kind_cat"

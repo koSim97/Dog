@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MapActivity">
+    tools:context=".DiseaseDictionaryActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -15,7 +15,10 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="ANIMAL HOSPITAL"
-        android:textSize="30dp"/>
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="@color/colortest"
+        android:fontFamily="@font/custom_font_family"/>
 
     <Button
         android:layout_marginTop="30dp"
@@ -24,7 +27,11 @@
         android:id="@+id/search_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="주변 동물병원 찾기"/>
+        android:text="주변 동물병원 찾기"
+        android:textSize="24dp"
+        android:textColor="@color/colorwhite"
+        android:fontFamily="@font/custom_font_family"
+        android:background="@drawable/rounded"/>
 
 
     <LinearLayout

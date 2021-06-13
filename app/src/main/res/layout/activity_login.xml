@@ -15,7 +15,10 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="LOGIN"
-        android:textSize="30dp"/>
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/colortest"
+        android:fontFamily="@font/custom_font_family"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:text="ID (E-mail)"/>
+            android:text="ID (E-mail)"
+            android:fontFamily="@font/custom_font_family"/>
 
         <EditText
             android:id="@+id/login_edit_id"
@@ -40,6 +44,9 @@
             android:autofillHints="Email"
             android:hint="Email"
             android:inputType="textEmailAddress"
+            android:fontFamily="@font/custom_font_family"
+            android:backgroundTint="@color/colortest1"
+            android:textSize="22dp"
             />
 
         <TextView
@@ -47,7 +54,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:textSize="20dp"
-            android:text="PASSWORD"/>
+            android:text="PASSWORD"
+            android:fontFamily="@font/custom_font_family"/>
 
         <EditText
             android:id="@+id/login_edit_password"
@@ -55,13 +63,19 @@
             android:layout_height="wrap_content"
             android:autofillHints="Password"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:fontFamily="@font/custom_font_family"
+            android:backgroundTint="@color/colortest1"
+            android:textSize="22dp" />
         <Button
             android:id="@+id/login_btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="LOGIN"
+            android:textColor="@color/colorwhite"
+            android:background="@drawable/rounded"
+            android:textSize="17dp"
             />
 
         <Button
@@ -69,14 +83,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="NEW ACCOUNT"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorwhite"
+            android:background="@drawable/rounded"
+            android:textSize="17dp"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:textSize="20dp"
-            android:text="Google+"/>
+            android:textSize="22dp"
+            android:text="Google+"
+            android:textColor="@color/colorgreen"
+            android:textStyle="bold"/>
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/login_btn_login_google"

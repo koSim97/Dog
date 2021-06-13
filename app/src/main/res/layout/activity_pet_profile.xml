@@ -16,7 +16,8 @@
         android:text="PET PROFILE"
         android:textSize="30dp"
         android:textColor="@color/colortest"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:fontFamily="@font/custom_font_family"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="450dp"
@@ -50,27 +51,31 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="NAME"
-                        android:textSize="20dp"/>
+                        android:textSize="25dp"
+                        android:fontFamily="@font/custom_font_family"/>
                     <TextView
                         android:id="@+id/petprof_text_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Default"
                         android:textSize="30dp"
-                        android:textAlignment="center"/>
+                        android:textAlignment="center"
+                        android:fontFamily="@font/custom_font_family"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="35dp"
                         android:text="AGE"
-                        android:textSize="20dp"/>
+                        android:textSize="25dp"
+                        android:fontFamily="@font/custom_font_family"/>
                     <TextView
                         android:id="@+id/petprof_text_age"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Default"
                         android:textSize="30dp"
-                        android:textAlignment="center"/>
+                        android:textAlignment="center"
+                        android:fontFamily="@font/custom_font_family"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -80,57 +85,65 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="35dp"
-                    android:text="SEX"
-                    android:textSize="20dp"/>
-                <TextView
-                    android:id="@+id/petprof_text_sex"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Default"
-                    android:textSize="30dp"
-                    android:textAlignment="center"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="35dp"
-                    android:text="SPECIES"
-                    android:textSize="20dp"/>
-                <TextView
-                    android:id="@+id/petprof_text_species"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Default"
-                    android:textSize="30dp"
-                    android:textAlignment="center"/>
-                <TextView
                     android:layout_width="364dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="35dp"
                     android:text="BLOOD TYPE"
-                    android:textSize="20dp" />
+                    android:textSize="25dp"
+                    android:fontFamily="@font/custom_font_family" />
                 <TextView
                     android:id="@+id/petprof_text_btype"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Default"
                     android:textSize="30dp"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:fontFamily="@font/custom_font_family"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:text="SEX"
+                    android:textSize="25dp"
+                    android:fontFamily="@font/custom_font_family"/>
+                <TextView
+                    android:id="@+id/petprof_text_sex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default"
+                    android:textSize="30dp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/custom_font_family"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:text="SPECIES"
+                    android:textSize="25dp"
+                    android:fontFamily="@font/custom_font_family"/>
+                <TextView
+                    android:id="@+id/petprof_text_species"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default"
+                    android:textSize="30dp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/custom_font_family"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="35dp"
                     android:text="KIND"
-                    android:textSize="20dp"/>
+                    android:textSize="25dp"
+                    android:fontFamily="@font/custom_font_family"/>
                 <TextView
                     android:id="@+id/petprof_text_kind"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Default"
                     android:textSize="30dp"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:fontFamily="@font/custom_font_family"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
