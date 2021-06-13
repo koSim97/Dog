@@ -1391,7 +1391,7 @@ public class ProtectionActivity extends TitleActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
+        init();
     } //end onCreate()
 
     // 검색 조회기간 선택
