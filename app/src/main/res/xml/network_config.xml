@@ -3,4 +3,11 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">openapi.airkorea.or.kr</domain>
     </domain-config>
+
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">openapi.animal.go.kr</domain>
+    </domain-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">www.animal.go.kr</domain>
+    </domain-config>
 </network-security-config>
