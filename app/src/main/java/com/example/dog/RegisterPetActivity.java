@@ -22,6 +22,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterPetActivity extends AppCompatActivity {
 
+    private String[] dogBloodType = {"DEA-1", "DEA1.1", "DEA1.2", "DEA2", "DEA3", "DEA4", "DEA5", "DEA6"};
+    private String[] dogKind = {"믹스견", "시츄", "코커스파니엘", "불독", "포메라니안", "시바견", "웰시코기", "푸들", "치와와", "말티즈", "기타"};
+    private String[] catKind = {"페르시안", "벵골", "시암", "브리티시숏헤어", "레그돌", "먼치킨", "러시안 블루", "기타"};
+
     EditText etName, etAge;
     RadioGroup grpSpecies;
     RadioButton rdoDog, rdoCat;
@@ -121,17 +125,31 @@ public class RegisterPetActivity extends AppCompatActivity {
         dogBTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                parent.getItemAtPosition(pos);
+                pBloodType = dogBloodType[pos];
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
 
+        grpCatBType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId){
+                    case R.id.regpet_rdo_btype_a:
+                        pBloodType = rdoBTA.getText().toString();
+                    case R.id.regpet_rdo_btype_ab:
+                        pBloodType = rdoBTAB.getText().toString();
+                    case R.id.regpet_rdo_btype_b:
+                        pBloodType = rdoBTB.getText().toString();
+                }
+            }
+        });
+
         dogKindSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                parent.getItemAtPosition(pos);
+                pKind = dogKind[pos];
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -141,11 +159,10 @@ public class RegisterPetActivity extends AppCompatActivity {
         catKindSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                parent.getItemAtPosition(pos);
+                pKind = catKind[pos];
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });
 
@@ -154,9 +171,7 @@ public class RegisterPetActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pName = etName.getText().toString();
                 pAge = etAge.getText().toString();
-
-
-                registerPet(pName, pAge, pSex, pSpecies);
+                registerPet(pName, pAge, pSex, pSpecies, pBloodType, pKind);
                 finish();
             }
         });
@@ -170,8 +185,8 @@ public class RegisterPetActivity extends AppCompatActivity {
 
     }
 
-    public void registerPet(String pName, String pAge, String pSex, String pSpecies){
-        pet pet = new pet(pName, pAge, pSex, pSpecies);
+    public void registerPet(String pName, String pAge, String pSex, String pSpecies, String pBloodType, String pKind){
+        pet pet = new pet(pName, pAge, pSex, pSpecies, pBloodType, pKind);
         DR.child("Users").child(uid).child("Pet").setValue(pet).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {

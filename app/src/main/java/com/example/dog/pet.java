@@ -58,10 +58,12 @@ public class pet {
         this.pKind = pKind;
     }
 
-    public pet(String pName, String pAge, String pSex, String pSpecies){
+    public pet(String pName, String pAge, String pSex, String pSpecies, String pBloodType, String pKind){
         this.pName = pName;
         this.pAge = pAge;
         this.pSex = pSex;
         this.pSpecies = pSpecies;
+        this.pBloodType = pBloodType;
+        this.pKind = pKind;
     }
 }

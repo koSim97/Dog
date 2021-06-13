@@ -80,19 +80,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="364dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="35dp"
-                    android:text="BLOOD TYPE"
-                    android:textSize="20dp" />
-                <TextView
-                    android:id="@+id/petprof_text_btype"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Default"
-                    android:textSize="30dp"
-                    android:textAlignment="center"/>
-                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="35dp"
@@ -113,6 +100,19 @@
                     android:textSize="20dp"/>
                 <TextView
                     android:id="@+id/petprof_text_species"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Default"
+                    android:textSize="30dp"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:layout_width="364dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:text="BLOOD TYPE"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/petprof_text_btype"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Default"
