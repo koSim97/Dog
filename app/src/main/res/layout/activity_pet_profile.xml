@@ -112,7 +112,7 @@
                     android:text="SPECIES"
                     android:textSize="20dp"/>
                 <TextView
-                    android:id="@+id/petprof_text_spicies"
+                    android:id="@+id/petprof_text_species"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Default"

@@ -24,6 +24,9 @@ public class PetProfileActivity extends AppCompatActivity {
 
     private TextView tvName;
     private TextView tvAge;
+    private TextView tvSex;
+    private TextView tvSpecies;
+
     private Button btnUpdate;
     private Button btnBack;
 
@@ -35,6 +38,8 @@ public class PetProfileActivity extends AppCompatActivity {
 
     private String pName;
     private String pAge;
+    private String pSex;
+    private String pSpecies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,9 @@ public class PetProfileActivity extends AppCompatActivity {
 
         tvName = (TextView)findViewById(R.id.petprof_text_name);
         tvAge = (TextView)findViewById(R.id.petprof_text_age);
+        tvSex = (TextView)findViewById(R.id.petprof_text_sex);
+        tvSpecies = (TextView)findViewById(R.id.petprof_text_species);
+
         btnUpdate = (Button)findViewById(R.id.petprof_btn_update);
         btnBack = (Button)findViewById(R.id.petprof_btn_back);
 
@@ -57,9 +65,13 @@ public class PetProfileActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 pName = snapshot.child("pName").getValue(String.class);
                 pAge  = snapshot.child("pAge").getValue(String.class);
+                pSex  = snapshot.child("pSex").getValue(String.class);
+                pSpecies  = snapshot.child("pSpecies").getValue(String.class);
 
                 tvName.setText(pName);
                 tvAge.setText(pAge);
+                tvSex.setText(pSex);
+                tvSpecies.setText(pSpecies);
             }
 
             @Override
