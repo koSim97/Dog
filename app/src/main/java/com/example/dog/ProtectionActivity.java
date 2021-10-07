@@ -1406,7 +1406,7 @@ public class ProtectionActivity extends TitleActivity {
         strMonth = String.valueOf(month+1);
         strDay = String.valueOf(day);
 
-        if (month > 0 && month < 10) {
+        if (month+1 > 0 && month+1 < 10) {
             strMonth = "0" + strMonth;
         }
 
@@ -1431,7 +1431,7 @@ public class ProtectionActivity extends TitleActivity {
         strMonth = Integer.toString(month+1);
         strDay = Integer.toString(day);
 
-        if (month > 0 && month < 10) {
+        if (month+1 > 0 && month+1 < 10) {
             strMonth = "0" + strMonth;
         }
 
