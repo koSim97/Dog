@@ -1,6 +1,11 @@
 package com.example.dog;
 
-import com.example.dog.protection.*;
+import com.example.dog.protection.Item;
+import com.example.dog.protection.PetMarkActivity;
+import com.example.dog.protection.RecyclerAdapter;
+import com.example.dog.protection.RecyclerDecoration;
+import com.example.dog.protection.endDatePickerFragment;
+import com.example.dog.protection.startDatePickerFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.fragment.app.DialogFragment;
@@ -31,11 +36,11 @@ public class ProtectionActivity extends TitleActivity {
     ArrayAdapter<String> adSidoArray, adSigunguArray, adAnimalArray, adBreedArray;
     ArrayList<String> sidoList, sigunguList, animalList, breedList, orgCdList, kindCdList;
     String[] uprCdList = new String[17];
-    String[] upKindCd={"417000", "422400", "429900"};
+    String[] upKindCd = {"417000", "422400", "429900"};
 
 
     Spinner spSido, spSigungu, spAnimal, spBreed;
-    Button btnStartdate, btnEnddate, btnSearch;
+    Button btnStartdate, btnEnddate, btnSearch, btnPetMark;
     TextView tvStartdate, tvEnddate, tvResultCount;
 
     String tagName, xmlParser, codeParser, bgnde, endde, upr_cd, org_cd, upkind, kind;
@@ -50,7 +55,6 @@ public class ProtectionActivity extends TitleActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_protection);
 
-
         spAnimal = findViewById(R.id.spin_animal);
         spBreed = findViewById(R.id.spin_breed);
         spSido = findViewById(R.id.spin_sido);
@@ -58,6 +62,7 @@ public class ProtectionActivity extends TitleActivity {
         btnStartdate = findViewById(R.id.btn_startdate);
         btnEnddate = findViewById(R.id.btn_enddate);
         btnSearch = findViewById(R.id.btn_search);
+        btnPetMark = findViewById(R.id.btn_PetMark);
         tvStartdate = findViewById(R.id.tv_startdate);
         tvEnddate = findViewById(R.id.tv_enddate);
         tvResultCount = findViewById(R.id.tv_resultCount);
@@ -70,73 +75,13 @@ public class ProtectionActivity extends TitleActivity {
             StrictMode.setThreadPolicy(policy);
         }
 
-        if(FirebaseAuth.getInstance().getCurrentUser() == null){
+        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             //로그인이 안되어 있으시 접속 못하게 막음
             finish();
             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         }
 
-        // 시도 값 파싱하여 지명은 스피너에 적용, 코드는 String 배열에 적용
-        try {
-            // XML 데이터를 읽어옴
-            URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sido?numOfRows=17&ServiceKey=DRVO2oTLXWBkqrPnUtGO7fMDpUyC%2BrvcHs%2B1yo%2BELUq0T7Nd6AWaXmcawiby0suzo5UtqTla7HNuo6o%2BylcOHw%3D%3D");
-            InputStream is = url.openStream();
-
-            XmlPullParserFactory factory = XmlPullParserFactory
-                    .newInstance();
-            XmlPullParser parser = factory.newPullParser();
-
-            // XmlPullParser에 XML 데이터와 인코딩 방식을 입력
-            parser.setInput(is, "UTF-8");
-
-            int eventType = parser.getEventType();
-            int i = 0;
-            boolean isItemTag = false;
-
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-
-                if (eventType == XmlPullParser.START_TAG) {
-
-                    tagName = parser.getName();
-                    if (tagName.equals("item"))
-                        isItemTag = true;
-
-
-                } else if (eventType == XmlPullParser.TEXT && isItemTag) {
-
-                    if (tagName.equals("orgdownNm")) {
-
-                        xmlParser = parser.getText();
-                        sidoList.add(xmlParser);
-                    }
-                    if (tagName.equals("orgCd")) {
-
-                        uprCdList[i] = parser.getText();
-                        i++;
-                    }
-
-                } else if (eventType == XmlPullParser.END_TAG) {
-
-                    tagName = parser.getName();
-
-                    if (tagName.equals("item")) {
-                        // 파싱한 데이터 사용 or 저장
-                        adSidoArray = new ArrayAdapter<>(this,
-                                android.R.layout.simple_spinner_dropdown_item,
-                                sidoList);
-                        spSido.setAdapter(adSidoArray);
-                        isItemTag = false;
-                    }
-                }
-
-                eventType = parser.next();
-                xmlParser = null;
-
-            }
-        } catch (Exception e) {
-            Toast.makeText(this, e.toString(), Toast.LENGTH_LONG)
-                    .show();
-        }
+        sidoParsing(); // 시도 값 파싱하여 지명은 스피너에 적용, 코드는 String 배열에 적용
 
         // 시도 스피너의 지역 선택에 따라 시군구 스피너의 지역 리스트 변경.
         spSido.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -149,7 +94,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -211,7 +156,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -273,7 +218,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -335,7 +280,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -397,7 +342,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -468,7 +413,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -530,7 +475,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -592,7 +537,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -654,7 +599,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -716,7 +661,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -778,7 +723,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -840,7 +785,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -902,7 +847,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -964,7 +909,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -1026,7 +971,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -1088,7 +1033,7 @@ public class ProtectionActivity extends TitleActivity {
                         try {
                             // XML 데이터를 읽어옴
                             URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu?upr_cd="
-                                    + upr_cd + "&" +serviceKey);
+                                    + upr_cd + "&" + serviceKey);
                             InputStream is = url.openStream();
 
                             XmlPullParserFactory factory = XmlPullParserFactory
@@ -1391,22 +1336,98 @@ public class ProtectionActivity extends TitleActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+        // 관심공고 페이지 열기
+        btnPetMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PetMarkActivity.class);
+                startActivity(intent);
+            }
+        });
+
         init();
     } //end onCreate()
+
+
+    // 시도 값 파싱하여 지명은 스피너에 적용, 코드는 String 배열에 적용
+    public void sidoParsing() {
+        try {
+            // XML 데이터를 읽어옴
+            URL url = new URL("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sido?numOfRows=17&ServiceKey=DRVO2oTLXWBkqrPnUtGO7fMDpUyC%2BrvcHs%2B1yo%2BELUq0T7Nd6AWaXmcawiby0suzo5UtqTla7HNuo6o%2BylcOHw%3D%3D");
+            InputStream is = url.openStream();
+
+            XmlPullParserFactory factory = XmlPullParserFactory
+                    .newInstance();
+            XmlPullParser parser = factory.newPullParser();
+
+            // XmlPullParser에 XML 데이터와 인코딩 방식을 입력
+            parser.setInput(is, "UTF-8");
+
+            int eventType = parser.getEventType();
+            int i = 0;
+            boolean isItemTag = false;
+
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+
+                if (eventType == XmlPullParser.START_TAG) {
+
+                    tagName = parser.getName();
+                    if (tagName.equals("item"))
+                        isItemTag = true;
+
+
+                } else if (eventType == XmlPullParser.TEXT && isItemTag) {
+
+                    if (tagName.equals("orgdownNm")) {
+
+                        xmlParser = parser.getText();
+                        sidoList.add(xmlParser);
+                    }
+                    if (tagName.equals("orgCd")) {
+
+                        uprCdList[i] = parser.getText();
+                        i++;
+                    }
+
+                } else if (eventType == XmlPullParser.END_TAG) {
+
+                    tagName = parser.getName();
+
+                    if (tagName.equals("item")) {
+                        // 파싱한 데이터 사용 or 저장
+                        adSidoArray = new ArrayAdapter<>(this,
+                                android.R.layout.simple_spinner_dropdown_item,
+                                sidoList);
+                        spSido.setAdapter(adSidoArray);
+                        isItemTag = false;
+                    }
+                }
+
+                eventType = parser.next();
+                xmlParser = null;
+
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, e.toString(), Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
 
     // 검색 조회기간 선택
     public void startDatePicker(View view) {
         DialogFragment newFragment = new startDatePickerFragment();
-        newFragment.show(getSupportFragmentManager(),"datePicker");
+        newFragment.show(getSupportFragmentManager(), "datePicker");
     }
-    public void processStartDatePickerResult(int year, int month, int day){
+
+    public void processStartDatePickerResult(int year, int month, int day) {
         String strYear, strMonth, strDay, dateMessage;
 
         strYear = String.valueOf(year);
-        strMonth = String.valueOf(month+1);
+        strMonth = String.valueOf(month + 1);
         strDay = String.valueOf(day);
 
-        if (month+1 > 0 && month+1 < 10) {
+        if (month + 1 > 0 && month + 1 < 10) {
             strMonth = "0" + strMonth;
         }
 
@@ -1422,16 +1443,17 @@ public class ProtectionActivity extends TitleActivity {
 
     public void endDatePicker(View view) {
         DialogFragment newFragment = new endDatePickerFragment();
-        newFragment.show(getSupportFragmentManager(),"datePicker");
+        newFragment.show(getSupportFragmentManager(), "datePicker");
     }
-    public void processEndDatePickerResult(int year, int month, int day){
+
+    public void processEndDatePickerResult(int year, int month, int day) {
         String strYear, strMonth, strDay, dateMessage;
 
         strYear = Integer.toString(year);
-        strMonth = Integer.toString(month+1);
+        strMonth = Integer.toString(month + 1);
         strDay = Integer.toString(day);
 
-        if (month+1 > 0 && month+1 < 10) {
+        if (month + 1 > 0 && month + 1 < 10) {
             strMonth = "0" + strMonth;
         }
 
@@ -1446,7 +1468,7 @@ public class ProtectionActivity extends TitleActivity {
     }
 
     // 검색 버튼 클릭
-    public void onClick(View view){
+    public void onClick(View view) {
         init();
         getItem();
     }
@@ -1462,7 +1484,7 @@ public class ProtectionActivity extends TitleActivity {
         recyclerView.addItemDecoration(spaceDecoration);
 
         DividerItemDecoration dividerItemDecoration =
-                new DividerItemDecoration(recyclerView.getContext(),new LinearLayoutManager(this).getOrientation());
+                new DividerItemDecoration(recyclerView.getContext(), new LinearLayoutManager(this).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
         rcAdapter = new RecyclerAdapter(this);
@@ -1488,7 +1510,7 @@ public class ProtectionActivity extends TitleActivity {
         ArrayList<String> listCareTel = new ArrayList<>(); // 보호소 연락처
         try {
             // XML 데이터를 읽어옴
-            URL url = new URL(serviceUrl + serviceKey + "&bgnde="+bgnde+"&endde="+endde+"&upr_cd="+upr_cd+"&org_cd="+org_cd+"&upkind="+upkind+"&kind="+kind+"&numOfRows=10000");
+            URL url = new URL(serviceUrl + serviceKey + "&bgnde=" + bgnde + "&endde=" + endde + "&upr_cd=" + upr_cd + "&org_cd=" + org_cd + "&upkind=" + upkind + "&kind=" + kind + "&numOfRows=10000");
             InputStream is = url.openStream();
 
             XmlPullParserFactory factory = XmlPullParserFactory
@@ -1568,7 +1590,8 @@ public class ProtectionActivity extends TitleActivity {
                 eventType = parser.next();
             }
 
-        } catch (Exception e) { }
+        } catch (Exception e) {
+        }
 
         for (int i = 0; i < listKindCd.size(); i++) {
             // 각 List의 값들을 data 객체에 set
@@ -1596,5 +1619,4 @@ public class ProtectionActivity extends TitleActivity {
         rcAdapter.notifyDataSetChanged();
         tvResultCount.setText(listKindCd.size() + "개의 검색결과");
     }
-
 }

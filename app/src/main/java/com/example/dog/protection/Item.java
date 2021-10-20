@@ -22,6 +22,7 @@ public class Item {
     String weight;
     String popfile;
 
+
     public String getAge() {
         return age;
     }
@@ -173,4 +174,5 @@ public class Item {
     public void setPopfile(String popfile) {
         this.popfile = popfile;
     }
+
 }

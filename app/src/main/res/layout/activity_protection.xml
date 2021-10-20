@@ -9,6 +9,17 @@
     android:layout_marginRight="30dp"
     tools:context=".ProtectionActivity">
 
+    <Button
+        android:id="@+id/btn_PetMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:text="관심공고"
+        android:textSize="20dp"
+        android:fontFamily="@font/custom_font_family"
+        android:background="@drawable/rounded"
+        android:textColor="@color/colorwhite" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -156,6 +167,8 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:clipToPadding="false"/>
+
+
 
 
 </LinearLayout>

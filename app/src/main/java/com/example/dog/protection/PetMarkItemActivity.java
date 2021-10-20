@@ -1,6 +1,5 @@
 package com.example.dog.protection;
 
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,10 +15,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.example.dog.ProtectionActivity;
+import com.bumptech.glide.Glide;
 import com.example.dog.R;
-import com.example.dog.RegisterPetActivity;
-import com.example.dog.pet;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,11 +34,9 @@ import com.kakao.sdk.template.model.Social;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.List;
 
-
-public class ProtectionItemActivity extends ProtectionActivity {
+public class PetMarkItemActivity extends PetMarkActivity{
 
     ImageView iv_popfile;
     TextView tv_kindCd, tv_info, tv_noticeNo, tv_happenPlace, tv_specialMark, tv_happenDt,
@@ -57,10 +52,11 @@ public class ProtectionItemActivity extends ProtectionActivity {
     private String popfile, kindCd, info, noticeNo, happenPlace,
             specialMark, happenDt,noticeDt, careNm, careTel, careAddr;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_protection_item);
+        setContentView(R.layout.activity_petmark_item);
 
         // 카카오 인증키
         KakaoSdk.init(this, "6076991dc99e6110c30f8ca0de1f468f");
@@ -128,7 +124,7 @@ public class ProtectionItemActivity extends ProtectionActivity {
         btnMark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadPetMark(popfile, kindCd, info, noticeNo, happenPlace, specialMark, happenDt, noticeDt, careNm, careTel, careAddr);
+                deletePetMark(noticeNo);
             }
         });
 
@@ -166,14 +162,14 @@ public class ProtectionItemActivity extends ProtectionActivity {
         if (LinkClient.getInstance().isKakaoLinkAvailable(this)) {
             LinkClient.getInstance().defaultTemplate(this, defaultFeed, (linkResult, error) -> {
                 if (error != null) {
-                Log.e("KakaoLink", "Error");
-            } else if (linkResult != null) {
-                Log.e("KakaoLink", "Success");
-                startActivity(linkResult.getIntent());
+                    Log.e("KakaoLink", "Error");
+                } else if (linkResult != null) {
+                    Log.e("KakaoLink", "Success");
+                    startActivity(linkResult.getIntent());
 
-                Log.w("KakaoLink", "Warning Msg: ${linkResult.warningMsg}");
-                Log.w("KakaoLink", "Argument Msg: ${linkResult.argumentMsg");
-            }
+                    Log.w("KakaoLink", "Warning Msg: ${linkResult.warningMsg}");
+                    Log.w("KakaoLink", "Argument Msg: ${linkResult.argumentMsg");
+                }
                 return null;
             });
         } else { // 카카오톡 미설치 시 웹 공유
@@ -224,14 +220,7 @@ public class ProtectionItemActivity extends ProtectionActivity {
         }
     }
 
-
-    public void uploadPetMark(String popfile, String kindCd, String info, String noticeNo, String happenPlace, String specialMark, String happenDt, String noticeDt, String careNm, String careTel, String careAddr) {
-        petMark petMark = new petMark(popfile, kindCd, info, noticeNo, happenPlace, specialMark, happenDt, noticeDt, careNm, careTel, careAddr);
-        DR.child("Users").child(uid).child("PetMark").child(noticeNo).setValue(petMark).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Toast.makeText(ProtectionItemActivity.this, "관심공고로 등록되었습니다.", Toast.LENGTH_SHORT).show();
-            }
-        });
+    public void deletePetMark(String noticeNo) {
+        DR.child("Users").child(uid).child("PetMark").child(noticeNo).setValue(null);
     }
 }

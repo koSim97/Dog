@@ -23,20 +23,20 @@ import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
 
-    private Context mContext;
+    private final Context mContext;
     // rcAdapter에 들어갈 list
     private final ArrayList<Item> listItem = new ArrayList<>();
-    private ArrayList<String> kindCd = new ArrayList<>();
-    private ArrayList<String> info = new ArrayList<>();
-    private ArrayList<String> noticeNo = new ArrayList<>();
-    private ArrayList<String> happenPlace = new ArrayList<>();
-    private ArrayList<String> specialMark = new ArrayList<>();
-    private ArrayList<String> happenDt = new ArrayList<>();
-    private ArrayList<String> noticeDt = new ArrayList<>();
-    private ArrayList<String> careNm = new ArrayList<>();
-    private ArrayList<String> careTel = new ArrayList<>();
-    private ArrayList<String> careAddr = new ArrayList<>();
-    private ArrayList<String> popfile = new ArrayList<>();
+    private final ArrayList<String> kindCd = new ArrayList<>();
+    private final ArrayList<String> info = new ArrayList<>();
+    private final ArrayList<String> noticeNo = new ArrayList<>();
+    private final ArrayList<String> happenPlace = new ArrayList<>();
+    private final ArrayList<String> specialMark = new ArrayList<>();
+    private final ArrayList<String> happenDt = new ArrayList<>();
+    private final ArrayList<String> noticeDt = new ArrayList<>();
+    private final ArrayList<String> careNm = new ArrayList<>();
+    private final ArrayList<String> careTel = new ArrayList<>();
+    private final ArrayList<String> careAddr = new ArrayList<>();
+    private final ArrayList<String> popfile = new ArrayList<>();
 
     public RecyclerAdapter(Context context) {
         this.mContext = context;
