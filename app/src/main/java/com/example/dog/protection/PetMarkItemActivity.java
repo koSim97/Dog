@@ -27,6 +27,7 @@ import com.kakao.sdk.common.util.KakaoCustomTabsClient;
 import com.kakao.sdk.link.LinkClient;
 import com.kakao.sdk.link.WebSharerClient;
 import com.kakao.sdk.template.model.Content;
+import com.kakao.sdk.template.model.FeedTemplate;
 import com.kakao.sdk.template.model.ItemContent;
 import com.kakao.sdk.template.model.Link;
 import com.kakao.sdk.template.model.Social;
@@ -34,7 +35,9 @@ import com.kakao.sdk.template.model.Social;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PetMarkItemActivity extends PetMarkActivity{
 
@@ -116,7 +119,6 @@ public class PetMarkItemActivity extends PetMarkActivity{
 
                 String tel = tv_careTel.getText().toString();
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + tel));
-
                 startActivity(intent);
             }
         });
@@ -142,50 +144,31 @@ public class PetMarkItemActivity extends PetMarkActivity{
 
     // 카카오톡 공유하기 (카카오링크 API)
     void kakaoLink() {
-        String title = "유기동물 공고 조회";
-        String imageUrl = popfile;
-        Link link = new Link("https://developers.kakao.com");
-        String description = "괴발개발 앱에서 확인하세요!";
-        int imageWidth = 260;
-        int imageHeight = 130;
-
-        ItemContent itemContent = null;
-        Social social = null;
-        List<com.kakao.sdk.template.model.Button> buttons = null;
-        String buttonTitle = "앱으로 가기";
-
-
-        Content content = new Content(title,imageUrl,link,description,imageWidth,imageHeight);
-
-        com.kakao.sdk.template.model.FeedTemplate defaultFeed = new com.kakao.sdk.template.model.FeedTemplate(content, itemContent, social, buttons, buttonTitle);
-
+        Map<String, String> args = new HashMap<String, String>();
+        args.put("img" , popfile);
+        args.put("noticeNo", noticeNo);
+        args.put("kindCd", kindCd);
+        args.put("infoItem", info+" / " +specialMark);
+        args.put("happenPlace", happenPlace);
+        args.put("happenDt", happenDt);
+        args.put("noticeDt", noticeDt);
+        args.put("careNm", careNm);
+        args.put("careAddr", careAddr);
+        args.put("specialMark", specialMark);
+        args.put("info", info);
+        args.put("careTel", careTel);
         if (LinkClient.getInstance().isKakaoLinkAvailable(this)) {
-            LinkClient.getInstance().defaultTemplate(this, defaultFeed, (linkResult, error) -> {
-                if (error != null) {
+            LinkClient.getInstance().customTemplate(this, 63648L, args, (linkResult, error) -> {
+            if (error != null) {
                     Log.e("KakaoLink", "Error");
                 } else if (linkResult != null) {
                     Log.e("KakaoLink", "Success");
                     startActivity(linkResult.getIntent());
-
                     Log.w("KakaoLink", "Warning Msg: ${linkResult.warningMsg}");
                     Log.w("KakaoLink", "Argument Msg: ${linkResult.argumentMsg");
                 }
                 return null;
-            });
-        } else { // 카카오톡 미설치 시 웹 공유
-            Uri shareUri = WebSharerClient.getInstance().defaultTemplateUri(defaultFeed);
-
-            try { // 크롬으로 공유
-                KakaoCustomTabsClient.INSTANCE.openWithDefault(this, shareUri);
-            } catch(Exception e) {
-                Log.e("카카오톡 미설치", "크롬 미설치");
-            }
-
-            try { // 인터넷 브라우저로 공유
-                KakaoCustomTabsClient.INSTANCE.open(this, shareUri);
-            } catch (Exception e) {
-                Log.e("카카오톡 미설치", "인터넷 브라우저 없음");
-            }
+        });
         }
     }
 
