@@ -18,31 +18,18 @@ import androidx.annotation.Nullable;
 
 import com.example.dog.ProtectionActivity;
 import com.example.dog.R;
-import com.example.dog.RegisterPetActivity;
-import com.example.dog.pet;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.kakao.sdk.common.KakaoSdk;
-import com.kakao.sdk.common.util.KakaoCustomTabsClient;
 import com.kakao.sdk.link.LinkClient;
-import com.kakao.sdk.link.WebSharerClient;
-import com.kakao.sdk.template.model.Content;
-import com.kakao.sdk.template.model.ItemContent;
-import com.kakao.sdk.template.model.Link;
-import com.kakao.sdk.template.model.Social;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -59,7 +46,7 @@ public class ProtectionItemActivity extends ProtectionActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
     private String uid;
-    private String popfile, kindCd, info, noticeNo, happenPlace,
+    String popfile, kindCd, info, noticeNo, happenPlace,
             specialMark, happenDt,noticeDt, careNm, careTel, careAddr;
 
     @Override
@@ -162,6 +149,7 @@ public class ProtectionItemActivity extends ProtectionActivity {
         args.put("specialMark", specialMark);
         args.put("info", info);
         args.put("careTel", careTel);
+
         if (LinkClient.getInstance().isKakaoLinkAvailable(this)) {
             LinkClient.getInstance().customTemplate(this, 63648L, args, (linkResult, error) -> {
                 if (error != null) {
@@ -176,6 +164,45 @@ public class ProtectionItemActivity extends ProtectionActivity {
             });
         }
     }
+
+//    void kakaoLink2() {
+//        Map<String, String> androidExecutionParams = new HashMap<String, String>();
+//        androidExecutionParams.put("noticeNo", noticeNo);
+//        androidExecutionParams.put("kindCd", kindCd);
+//        androidExecutionParams.put("happenPlace", happenPlace);
+//        androidExecutionParams.put("happenDt", happenDt);
+//        androidExecutionParams.put("noticeDt", noticeDt);
+//        androidExecutionParams.put("careNm", careNm);
+//        androidExecutionParams.put("careAddr", careAddr);
+//        androidExecutionParams.put("specialMark", specialMark);
+//        androidExecutionParams.put("info", info);
+//        androidExecutionParams.put("careTel", careTel);
+//        String title = "괴발개발";
+//        String imageUrl = popfile;
+//        Link link = new Link(null, null, androidExecutionParams,null);
+//        String description = "괴발개발 앱에서 공고를 확인하세요!";
+//        int imageWidth = 300;
+//        int imageHeight = 300;
+//        Content content = new Content(title, imageUrl, link, description, imageWidth, imageHeight);
+//        String buttonTitle = "앱에서 확인";
+//
+//        DefaultTemplate defaultFeed = new FeedTemplate(content,null,null,null,buttonTitle);
+//
+//        if (LinkClient.getInstance().isKakaoLinkAvailable(this)) {
+//            LinkClient.getInstance().defaultTemplate(this, defaultFeed, (linkResult, error) -> {
+//                if (error != null) {
+//                    Log.e("KakaoLink", "Error");
+//                } else if (linkResult != null) {
+//                    Log.e("KakaoLink", "Success");
+//                    startActivity(linkResult.getIntent());
+//
+//                    Log.w("KakaoLink", "Warning Msg: ${linkResult.warningMsg}");
+//                    Log.w("KakaoLink", "Argument Msg: ${linkResult.argumentMsg");
+//                }
+//                return null;
+//            });
+//        }
+//    }
 
 
     private class popfileToImage extends AsyncTask<String, Void, Bitmap> {
