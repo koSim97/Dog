@@ -9,7 +9,8 @@
         android:id="@+id/tv_animalcondition"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:gravity="center_horizontal"
+        android:gravity="center"
+        android:textColor="@color/colortest"
         android:text="공고현황"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
@@ -23,7 +24,11 @@
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"

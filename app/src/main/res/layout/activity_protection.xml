@@ -14,7 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:text="관심공고"
+        android:layout_marginTop="20dp"
+        android:text="관심 공고 보기"
         android:textSize="20dp"
         android:fontFamily="@font/custom_font_family"
         android:background="@drawable/rounded"
@@ -152,7 +153,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/colorsub1" />
+        android:background="@color/colortest1" />
 
     <TextView
         android:id="@+id/tv_resultCount"

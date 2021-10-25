@@ -14,7 +14,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="ANIMAL HOSPITAL"
+        android:gravity="center"
+        android:text="주변 동물병원 찾기"
         android:textSize="40dp"
         android:textStyle="bold"
         android:textColor="@color/colortest"
@@ -36,6 +37,10 @@
 
     <LinearLayout
         android:id="@+id/tmap_layout"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

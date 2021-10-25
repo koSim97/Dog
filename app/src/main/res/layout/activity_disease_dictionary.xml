@@ -11,10 +11,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="DISEASE DICTIONARY"
+        android:gravity="center"
+        android:text="동물 질병 사전"
         android:textSize="40dp"
         android:fontFamily="@font/custom_font_family"
         android:textColor="@color/colortest"

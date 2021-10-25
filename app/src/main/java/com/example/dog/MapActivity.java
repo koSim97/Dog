@@ -105,7 +105,7 @@ public class MapActivity extends TitleActivity implements TMapGpsManager.onLocat
                             mapMarkerItem.setName(item.getPOIName());
                             mapMarkerItem.setCanShowCallout(true);
                             mapMarkerItem.setCalloutTitle(item.getPOIName());
-                            mapMarkerItem.setCalloutRightButtonImage(BitmapFactory.decodeResource(getResources(),R.drawable.test));
+                            mapMarkerItem.setCalloutRightButtonImage(BitmapFactory.decodeResource(getResources(),R.drawable.search));
                             //mapMarkerItem.setCalloutSubTitle(item.ad);
                             tMapView.addMarkerItem("marker"+i,mapMarkerItem);
                             Log.d("test","item : "+ item.getPOIName() + ", "+ item.getPOIAddress().replace("null",""));

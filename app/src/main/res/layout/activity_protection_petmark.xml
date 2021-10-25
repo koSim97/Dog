@@ -11,6 +11,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/custom_font_family"
+        android:gravity="center"
         android:text="MARK MY PET!!"
         android:textColor="@color/colortest1"
         android:textSize="40sp"
@@ -23,6 +24,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_petmark"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
