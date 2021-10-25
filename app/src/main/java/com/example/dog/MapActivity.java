@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationListener;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -67,6 +68,16 @@ public class MapActivity extends TitleActivity implements TMapGpsManager.onLocat
                 getAroundPoi();
             }
         });
+        tMapView.setOnCalloutRightButtonClickListener(new TMapView.OnCalloutRightButtonClickCallback() {
+            @Override
+            public void onCalloutRightButton(TMapMarkerItem tMapMarkerItem) {
+                Uri web = Uri.parse("https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=");
+                Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(web+tMapMarkerItem.getName()));
+                startActivity(intent);
+                Log.d("test","item123 : "+ tMapMarkerItem.getName());
+            }
+        });
+
 
     }
 
@@ -92,10 +103,15 @@ public class MapActivity extends TitleActivity implements TMapGpsManager.onLocat
                             mapMarkerItem.setPosition(0.5f,1.0f);
                             mapMarkerItem.setTMapPoint(item.getPOIPoint());
                             mapMarkerItem.setName(item.getPOIName());
+                            mapMarkerItem.setCanShowCallout(true);
+                            mapMarkerItem.setCalloutTitle(item.getPOIName());
+                            mapMarkerItem.setCalloutRightButtonImage(BitmapFactory.decodeResource(getResources(),R.drawable.test));
+                            //mapMarkerItem.setCalloutSubTitle(item.ad);
                             tMapView.addMarkerItem("marker"+i,mapMarkerItem);
                             Log.d("test","item : "+ item.getPOIName() + ", "+ item.getPOIAddress().replace("null",""));
                         }
                     }
                 });
     }
+
 }
