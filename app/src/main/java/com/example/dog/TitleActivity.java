@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class TitleActivity extends AppCompatActivity {
-    private String[] navItems = {"홈으로","동물보호관리시스템 조회","동물병원 찾기","펫 등록하기","펫 프로필 보기","다이어리","질병사전 조회","로그아웃"};
+    private String[] navItems = {"홈으로","동물보호관리시스템 조회","동물병원 찾기","펫 등록하기","펫 프로필 보기","캘린더","질병사전 조회","로그아웃"};
     private ListView lvNavList;
     Toolbar toolbar;
     private DrawerLayout dlDrawer;
@@ -101,7 +101,7 @@ public class TitleActivity extends AppCompatActivity {
                     startActivity(intent4);
                     break;
                 case 5:
-                    Intent intent5 = new Intent(getApplicationContext(),DiaryActivity.class);
+                    Intent intent5 = new Intent(getApplicationContext(), CalendarActivity.class);
                     startActivity(intent5);
                     break;
                 case 6:

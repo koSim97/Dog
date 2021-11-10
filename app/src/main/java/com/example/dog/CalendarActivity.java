@@ -3,7 +3,6 @@ package com.example.dog;
 import androidx.annotation.NonNull;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-public class DiaryActivity extends TitleActivity {
+public class CalendarActivity extends TitleActivity {
 
     public String fname=null;
     public String str=null;
@@ -26,7 +25,7 @@ public class DiaryActivity extends TitleActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_diary);
+        setContentView(R.layout.activity_calendar);
         calendarView=findViewById(R.id.calendarView);
         diaryTextView=findViewById(R.id.diaryTextView);
         save_Btn=findViewById(R.id.save_Btn);
@@ -132,7 +131,7 @@ public class DiaryActivity extends TitleActivity {
 
         try{
             fos=openFileOutput(readDay,MODE_NO_LOCALIZED_COLLATORS);
-            String content="";
+            String content=null;
             fos.write((content).getBytes());
             fos.close();
 
