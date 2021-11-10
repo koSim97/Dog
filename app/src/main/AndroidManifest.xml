@@ -27,6 +27,9 @@
             android:name=".PetProfileActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
+            android:name=".DiaryActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".RegisterPetActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity

@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:gravity="center"
+        android:textColor="@color/colortest"
         android:text="공고현황"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 

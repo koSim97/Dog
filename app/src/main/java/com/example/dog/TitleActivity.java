@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class TitleActivity extends AppCompatActivity {
-    private String[] navItems = {"홈으로","동물보호관리시스템 조회","동물병원 찾기","펫 등록하기","펫 프로필 보기","질병사전 조회","로그아웃"};
+    private String[] navItems = {"홈으로","동물보호관리시스템 조회","동물병원 찾기","펫 등록하기","펫 프로필 보기","다이어리","질병사전 조회","로그아웃"};
     private ListView lvNavList;
     Toolbar toolbar;
     private DrawerLayout dlDrawer;
@@ -101,15 +101,19 @@ public class TitleActivity extends AppCompatActivity {
                     startActivity(intent4);
                     break;
                 case 5:
-                    Intent intent5 = new Intent(getApplicationContext(),DiseaseDictionaryActivity.class);
+                    Intent intent5 = new Intent(getApplicationContext(),DiaryActivity.class);
                     startActivity(intent5);
                     break;
                 case 6:
+                    Intent intent6 = new Intent(getApplicationContext(),DiseaseDictionaryActivity.class);
+                    startActivity(intent6);
+                    break;
+                case 7:
                     FirebaseAuth.getInstance().signOut();
                     Toast.makeText(TitleActivity.this, "로그아웃되었습니다.", Toast.LENGTH_SHORT).show();
-                    Intent intent6 = new Intent(getApplicationContext(),LoginActivity.class);
+                    Intent intent7 = new Intent(getApplicationContext(),LoginActivity.class);
                     finish();
-                    startActivity(intent6);
+                    startActivity(intent7);
                     break;
             }
             dlDrawer.closeDrawer(lvNavList);
