@@ -44,7 +44,6 @@
         <activity
             android:name=".protection.ProtectionItemActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-<<<<<<< HEAD
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.VIEW" />-->
 <!--                <category android:name="android.intent.category.DEFAULT" />-->
