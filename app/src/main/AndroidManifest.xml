@@ -44,6 +44,7 @@
         <activity
             android:name=".protection.ProtectionItemActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+<<<<<<< HEAD
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.VIEW" />-->
 <!--                <category android:name="android.intent.category.DEFAULT" />-->
@@ -52,6 +53,14 @@
 <!--                <data android:scheme="@string/kakao_scheme"-->
 <!--                    android:host="@string/kakaolink_host"/>-->
 <!--            </intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/kakao_scheme"
+                    android:host="@string/kakaolink_host"/>
+            </intent-filter>
         </activity>
         <activity
             android:name=".protection.PetMarkItemActivity"
@@ -64,6 +73,14 @@
 <!--                <data android:scheme="@string/kakao_scheme"-->
 <!--                    android:host="@string/kakaolink_host"/>-->
 <!--            </intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/kakao_scheme"
+                    android:host="@string/kakaolink_host"/>
+            </intent-filter>
 
         </activity>
         <meta-data
