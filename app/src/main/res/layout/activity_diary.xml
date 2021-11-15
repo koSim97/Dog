@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:textColor="@color/colortest"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:text="날짜 선택"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/btWrite"
+        android:onClick="writeClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded"
+        android:textColor="@color/colorwhite"
+        android:textSize="17dp"
+        android:text="일기쓰기" />
+
+    <Button
+        android:id="@+id/btRead"
+        android:onClick="readClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded"
+        android:textColor="@color/colorwhite"
+        android:textSize="17dp"
+        android:text="일기보기" />
+
+    <Button
+        android:id="@+id/btAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:text="모두보기" />
+
+
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

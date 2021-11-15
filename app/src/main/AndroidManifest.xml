@@ -30,6 +30,15 @@
             android:name=".CalendarActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
+            android:name=".diary.DiaryActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".diary.DiaryReadActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".diary.DiaryWriteActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".RegisterPetActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity

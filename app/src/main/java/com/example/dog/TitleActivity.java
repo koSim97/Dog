@@ -18,11 +18,12 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.dog.diary.DiaryActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 
 public class TitleActivity extends AppCompatActivity {
-    private String[] navItems = {"홈으로","동물보호관리시스템 조회","동물병원 찾기","펫 등록하기","펫 프로필 보기","캘린더","질병사전 조회","로그아웃"};
+    private String[] navItems = {"홈으로","동물보호관리시스템 조회","동물병원 찾기","펫 등록하기","펫 프로필 보기","캘린더","다이어리","질병사전 조회","로그아웃"};
     private ListView lvNavList;
     Toolbar toolbar;
     private DrawerLayout dlDrawer;
@@ -105,15 +106,19 @@ public class TitleActivity extends AppCompatActivity {
                     startActivity(intent5);
                     break;
                 case 6:
-                    Intent intent6 = new Intent(getApplicationContext(),DiseaseDictionaryActivity.class);
+                    Intent intent6 = new Intent(getApplicationContext(), DiaryActivity.class);
                     startActivity(intent6);
                     break;
                 case 7:
+                    Intent intent7 = new Intent(getApplicationContext(),DiseaseDictionaryActivity.class);
+                    startActivity(intent7);
+                    break;
+                case 8:
                     FirebaseAuth.getInstance().signOut();
                     Toast.makeText(TitleActivity.this, "로그아웃되었습니다.", Toast.LENGTH_SHORT).show();
-                    Intent intent7 = new Intent(getApplicationContext(),LoginActivity.class);
+                    Intent intent8 = new Intent(getApplicationContext(),LoginActivity.class);
                     finish();
-                    startActivity(intent7);
+                    startActivity(intent8);
                     break;
             }
             dlDrawer.closeDrawer(lvNavList);
