@@ -30,12 +30,16 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -44,7 +48,7 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DiaryWriteActivity extends DiaryActivity {
+public class DiaryModifyActivity extends DiaryReadActivity {
 
     private final int GET_GALLERY_IMAGE = 200;
     private ImageView ivPic;
@@ -57,7 +61,7 @@ public class DiaryWriteActivity extends DiaryActivity {
     private DatabaseReference DR;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
-    private String uid, diaryContent, diaryImage;
+    private String uid, diaryContent, diaryImage, date;
     FirebaseStorage storage;
 
     public Uri image;
@@ -65,7 +69,7 @@ public class DiaryWriteActivity extends DiaryActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_diary_write);
+        setContentView(R.layout.activity_diary_modify);
 
         storage = FirebaseStorage.getInstance();
         FD = FirebaseDatabase.getInstance();
@@ -84,6 +88,30 @@ public class DiaryWriteActivity extends DiaryActivity {
         Intent intent = getIntent();
         date = intent.getExtras().getString("date");
         tvDate.setText(date);
+        DR.child("Users").child(uid).child("Diary").child(date).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    if (dataSnapshot.getKey().equals("diaryContent")) {
+                        String diaryContent = dataSnapshot.getValue(String.class);
+                        etWrite.setText(diaryContent);
+                    }
+
+                    if (dataSnapshot.getKey().equals("diaryImage")) {
+                        String image = dataSnapshot.getValue().toString();
+                        byte[] b = binaryStringToByteArray(image);
+                        ByteArrayInputStream is = new ByteArrayInputStream(b);
+                        Drawable reviewImage = Drawable.createFromStream(is, "reviewImage");
+                        ivPic.setImageDrawable(reviewImage);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("DiaryModifyActivity", String.valueOf(databaseError.toException())); // 에러문 출력
+            }
+        });
 
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +119,7 @@ public class DiaryWriteActivity extends DiaryActivity {
                 diaryContent = etWrite.getText().toString();
                 updateDiaryImage();
                 saveDiary();
+                finish();
             }
         });
 
@@ -113,7 +142,7 @@ public class DiaryWriteActivity extends DiaryActivity {
         DR.child("Users").child(uid).child("Diary").child(date).setValue(diaryItem).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(DiaryWriteActivity.this, "일기가 저장되었습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DiaryModifyActivity.this, "일기가 수정되었습니다.", Toast.LENGTH_SHORT).show();
             }
         });
     }

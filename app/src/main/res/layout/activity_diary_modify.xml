@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="5dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="3dp"
         android:layout_weight="0.5"
         android:gravity="center"
         android:orientation="horizontal"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_weight="3"
-            android:text="의 일기"
+            android:text="의 일기 수정"
             android:textSize="18dp"
             android:textColor="@color/colortest"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
@@ -48,8 +48,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorPrimaryDark" />
-
+        android:background="#000000" />
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -58,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Photo"
+            android:text="선택된 사진이 없습니다.\n사진을 선택해주세요."
             android:textStyle="bold" />
         <ImageView
             android:id="@+id/ivPic"
@@ -68,12 +67,11 @@
             android:scaleType="fitCenter"
             />
     </FrameLayout>
-
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorPrimaryDark" />
-
+        android:background="#000000"
+        android:layout_marginBottom="2dp"/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -83,13 +81,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/tvRead"
+        <EditText
+            android:id="@+id/etWrite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:hint="Read my pet diary!"
-            android:textSize="18dp" />
+            android:background="@null"
+            android:textSize="21dp" />
 
 
     </FrameLayout>
@@ -97,61 +95,30 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="2dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:weightSum="5">
+        android:weightSum="2">
 
         <Button
-            android:id="@+id/btPre"
+            android:id="@+id/btSave"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="1dp"
-            android:background="@drawable/rounded"
-            android:textColor="@color/colorwhite"
-            android:text="이전일기" />
-
-
-        <Button
-            android:id="@+id/btModify"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
+            android:layout_margin="2dp"
             android:layout_weight="1"
             android:background="@drawable/rounded"
             android:textColor="@color/colorwhite"
+            android:onClick="saveClick"
             android:text="수정" />
 
-
         <Button
-            android:id="@+id/btHome"
+            android:id="@+id/btCancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="2dp"
             android:layout_weight="1"
-            android:layout_margin="1dp"
             android:background="@drawable/rounded"
             android:textColor="@color/colorwhite"
-            android:text="홈" />
-
-        <Button
-            android:id="@+id/btDelete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="1dp"
-            android:background="@drawable/rounded"
-            android:textColor="@color/colorwhite"
-            android:text="삭제" />
-
-        <Button
-            android:id="@+id/btNext"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="1dp"
-            android:background="@drawable/rounded"
-            android:textColor="@color/colorwhite"
-            android:text="다음일기" />
+            android:onClick="cancelClick"
+            android:text="취소" />
     </LinearLayout>
 </LinearLayout>

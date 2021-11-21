@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_weight="3"
-            android:text="오늘의 일기"
+            android:text="의 일기"
             android:textSize="18dp"
             android:textColor="@color/colortest"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
@@ -51,7 +51,7 @@
         android:background="#000000" />
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_weight="4">
         <TextView
             android:layout_width="wrap_content"
@@ -64,6 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
+            android:scaleType="fitCenter"
             />
     </FrameLayout>
     <View
@@ -107,6 +108,7 @@
             android:layout_weight="1"
             android:background="@drawable/rounded"
             android:textColor="@color/colorwhite"
+            android:onClick="saveClick"
             android:text="저장" />
 
         <Button
@@ -117,6 +119,7 @@
             android:layout_weight="1"
             android:background="@drawable/rounded"
             android:textColor="@color/colorwhite"
+            android:onClick="cancelClick"
             android:text="취소" />
     </LinearLayout>
 </LinearLayout>

@@ -49,6 +49,10 @@
         <entry key="..\:/and/dog/app/src/main/res/layout/activity_register_pet.xml" value="0.23489583333333333" />
         <entry key="..\:/and/dog/app/src/main/res/layout/activity_title.xml" value="0.23489583333333333" />
         <entry key="..\:/and/dog/app/src/main/res/menu/menu_main.xml" value="0.23541666666666666" />
+        <entry key="app/src/main/res/layout/activity_diary_modify.xml" value="0.5104166666666666" />
+        <entry key="app/src/main/res/layout/activity_diary_read.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/activity_diary_write.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.5104166666666666" />
         <entry key="app/src/main/res/layout/activity_noticelink.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/activity_petmark_item.xml" value="0.22916666666666666" />
       </map>

@@ -14,12 +14,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
-import com.example.dog.MainActivity;
 import com.example.dog.R;
 import com.example.dog.TitleActivity;
-import com.example.dog.protection.startDatePickerFragment;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -52,6 +49,7 @@ public class DiaryActivity extends TitleActivity {
         String month = monthFormat.format(currentTime);
         String day = dayFormat.format(currentTime);
         tvDate.setText(year+"년 "+ month + "월 " + day+ "일");
+        date = year+month+day;
         
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -71,7 +69,7 @@ public class DiaryActivity extends TitleActivity {
                     strDay = "0" + strDay;
                 }
 
-                date = strYear+"-"+strMonth+"-"+strDay;
+                date = strYear+strMonth+strDay;
                 tvDate.setText(strYear+"년 "+ strMonth + "월 " + strDay+ "일");
             }
         });
