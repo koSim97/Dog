@@ -21,13 +21,13 @@
         android:fontFamily="@font/custom_font_family"/>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="400dp"
         android:orientation="vertical"
         android:fillViewport="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="10dp"
         android:scrollbarThumbVertical="@color/colorsub1"
         >
         <LinearLayout
@@ -86,7 +86,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="364dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="35dp"
                     android:text="BLOOD TYPE"
@@ -103,7 +103,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="10dp"
                     android:text="SEX"
                     android:textSize="25dp"
                     android:fontFamily="@font/custom_font_family"/>
@@ -118,7 +118,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="10dp"
                     android:text="SPECIES"
                     android:textSize="25dp"
                     android:fontFamily="@font/custom_font_family"/>
@@ -157,7 +157,7 @@
         android:text="UPDATE"
         android:background="@drawable/rounded"
         android:textColor="@color/colorwhite"
-        android:textSize="21dp"
+        android:textSize="20dp"
         />
     <Button
         android:id="@+id/petprof_btn_back"
@@ -169,5 +169,5 @@
         android:text="BACK"
         android:background="@drawable/rounded"
         android:textColor="@color/colorwhite"
-        android:textSize="21dp"/>
+        android:textSize="20dp"/>
 </LinearLayout>

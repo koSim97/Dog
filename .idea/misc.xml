@@ -11,29 +11,16 @@
         <entry key="..\:/Users/SODAM/Documents/Github/Dog/app/src/main/res/layout/activity_protection_main.xml" value="0.20314083080040526" />
         <entry key="..\:/Users/SODAM/Documents/Github/Dog/app/src/main/res/layout/activity_protection_petmark.xml" value="0.25" />
         <entry key="..\:/Users/SODAM/Documents/Github/Dog/app/src/main/res/layout/activity_protection_recyclerview.xml" value="0.5536458333333333" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_calendar.xml" value="0.20208333333333334" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_diary.xml" value="0.33" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_diary_read.xml" value="0.33" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_diary_recyclerview.xml" value="0.2046875" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_diary_write.xml" value="0.25" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_dirary_read.xml" value="0.1" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_join.xml" value="0.365625" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_login.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_map.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_pet_profile.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_petmark_item.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_petmark_recyclerview.xml" value="0.2046875" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_protection.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_protection_item.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_protection_petmark.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/layout/activity_protection_recyclerview.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/menu/menu_diary.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/menu/menu_main.xml" value="0.365625" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/xml/diary_fragment_1.xml" value="0.10462962962962963" />
-        <entry key="..\:/Users/user/StudioProjects/Dog/app/src/main/res/xml/note_item.xml" value="0.10462962962962963" />
         <entry key="..\:/and/dog/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2515625" />
         <entry key="..\:/and/dog/app/src/main/res/font/custom_font_family.xml" value="0.26510416666666664" />
+        <entry key="..\:/and/dog/app/src/main/res/layout/activity_add_board.xml" value="0.2046875" />
+        <entry key="..\:/and/dog/app/src/main/res/layout/activity_board.xml" value="0.2046875" />
+        <entry key="..\:/and/dog/app/src/main/res/layout/activity_board_content.xml" value="0.2046875" />
+        <entry key="..\:/and/dog/app/src/main/res/layout/activity_calendar.xml" value="0.2046875" />
+        <entry key="..\:/and/dog/app/src/main/res/layout/activity_diary.xml" value="0.2046875" />
+        <entry key="..\:/and/dog/app/src/main/res/layout/activity_diary_modify.xml" value="0.2046875" />
+        <entry key="..\:/and/dog/app/src/main/res/layout/activity_diary_read.xml" value="0.2046875" />
+        <entry key="..\:/and/dog/app/src/main/res/layout/activity_diary_write.xml" value="0.2046875" />
         <entry key="..\:/and/dog/app/src/main/res/layout/activity_disease_dictionary.xml" value="0.23489583333333333" />
         <entry key="..\:/and/dog/app/src/main/res/layout/activity_join.xml" value="0.23489583333333333" />
         <entry key="..\:/and/dog/app/src/main/res/layout/activity_login.xml" value="0.23489583333333333" />
@@ -48,11 +35,8 @@
         <entry key="..\:/and/dog/app/src/main/res/layout/activity_protection_recyclerview.xml" value="0.23489583333333333" />
         <entry key="..\:/and/dog/app/src/main/res/layout/activity_register_pet.xml" value="0.23489583333333333" />
         <entry key="..\:/and/dog/app/src/main/res/layout/activity_title.xml" value="0.23489583333333333" />
+        <entry key="..\:/and/dog/app/src/main/res/layout/board_item.xml" value="0.2046875" />
         <entry key="..\:/and/dog/app/src/main/res/menu/menu_main.xml" value="0.23541666666666666" />
-        <entry key="app/src/main/res/layout/activity_diary_modify.xml" value="0.5104166666666666" />
-        <entry key="app/src/main/res/layout/activity_diary_read.xml" value="0.22916666666666666" />
-        <entry key="app/src/main/res/layout/activity_diary_write.xml" value="0.22916666666666666" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.5104166666666666" />
         <entry key="app/src/main/res/layout/activity_noticelink.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/activity_petmark_item.xml" value="0.22916666666666666" />
       </map>

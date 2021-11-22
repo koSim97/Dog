@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import org.xmlpull.v1.XmlPullParser;
 
-public class DiseaseDictionaryActivity extends AppCompatActivity {
+public class DiseaseDictionaryActivity extends TitleActivity  {
 
     EditText etSearch;
     TextView tvResult;
