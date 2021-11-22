@@ -13,6 +13,12 @@
         android:text="TextView" />
 
     <TextView
+        android:id="@+id/con_email"
+        android:layout_width="409dp"
+        android:layout_height="20dp"
+        android:text="TextView" />
+
+    <TextView
         android:id="@+id/content1"
         android:layout_width="411dp"
         android:layout_height="63dp"

@@ -22,12 +22,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class BoardActivity extends AppCompatActivity {
+public class BoardActivity extends TitleActivity {
 
     private RecyclerView boardView = null;
     private Button addBtn;
     private BoardAdapter mAdapter;
-    private ArrayList<BoardData> mList = new ArrayList<>();
+    private ArrayList<BoardDao> mList = new ArrayList<>();
     int i=0;
 
     @Override
@@ -77,7 +77,8 @@ public class BoardActivity extends AppCompatActivity {
                 mList.clear();
                 for(DataSnapshot snapshot1 : snapshot.getChildren()){
                     Log.d("test"," "+snapshot1.child("title").getValue(String.class));
-                    mList.add(0,new BoardData(snapshot1.child("title").getValue(String.class),snapshot1.child("content").getValue(String.class)));
+                    mList.add(0,new BoardDao(snapshot1.child("id").getValue(String.class),snapshot1.child("title").getValue(String.class),
+                            snapshot1.child("content").getValue(String.class),snapshot1.child("email").getValue(String.class)));
                     Log.d("test1"," "+mList.size());
                 }
                 mAdapter.setItem(mList);

@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class AddBoardActivity extends AppCompatActivity {
+public class AddBoardActivity extends TitleActivity {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = database.getReference();
     private FirebaseAuth firebaseAuth;
@@ -46,7 +46,8 @@ public class AddBoardActivity extends AppCompatActivity {
     }
 
     public void addBoard(String id,String title,String content){
-        BoardDao boardDao = new BoardDao(id,title,content);
+        String email = user.getEmail();
+        BoardDao boardDao = new BoardDao(id,title,content,email);
         databaseReference.child("Board").child(""+count).setValue(boardDao);
         setResult(RESULT_OK);
         finish();
