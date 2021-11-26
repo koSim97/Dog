@@ -159,10 +159,9 @@ public class DiaryReadActivity extends DiaryActivity {
                                 Drawable reviewImage = Drawable.createFromStream(is, "reviewImage");
                                 ivPic.setImageDrawable(reviewImage);
                             }
-
-                            if (dataSnapshot.getKey().equals(null)) {
-                                Toast.makeText(DiaryReadActivity.this, "이전 일기가 없습니다.", Toast.LENGTH_SHORT).show();
-                            }
+                        }
+                        if (snapshot.getValue() == null) {
+                            Toast.makeText(DiaryReadActivity.this, "이전 일기가 없습니다.", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -171,20 +170,6 @@ public class DiaryReadActivity extends DiaryActivity {
                         Log.e("DiaryReadActivity", String.valueOf(databaseError.toException())); // 에러문 출력
                     }
                 });
-
-//                DR.child("Users").child(uid).child("Diary").child(date).addValueEventListener(new ValueEventListener() {
-//                    @Override public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                            if (dataSnapshot.getKey().equals("diaryImage")) {
-//                                String image = dataSnapshot.getValue().toString();
-//                                byte[] b = binaryStringToByteArray(image);
-//                                ByteArrayInputStream is = new ByteArrayInputStream(b);
-//                                Drawable reviewImage = Drawable.createFromStream(is, "reviewImage");
-//                                ivPic.setImageDrawable(reviewImage);
-//                            }
-//                        }
-//                    } @Override public void onCancelled(@NonNull DatabaseError error) { }
-//                });
             }
         });
 
@@ -278,10 +263,9 @@ public class DiaryReadActivity extends DiaryActivity {
                                 Drawable reviewImage = Drawable.createFromStream(is, "reviewImage");
                                 ivPic.setImageDrawable(reviewImage);
                             }
-
-                            if (dataSnapshot.getKey().equals(null)) {
-                                Toast.makeText(DiaryReadActivity.this, "다음 일기가 없습니다.", Toast.LENGTH_SHORT).show();
-                            }
+                        }
+                        if (snapshot.getValue() == null) {
+                            Toast.makeText(DiaryReadActivity.this, "다음 일기가 없습니다.", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -306,6 +290,8 @@ public class DiaryReadActivity extends DiaryActivity {
                 DR.child("Users").child(uid).child("Diary").child(date).setValue(null);
                 tvRead.setText(null);
                 ivPic.setVisibility(View.INVISIBLE);
+                Toast.makeText(DiaryReadActivity.this, "일기가 삭제되었습니다.",Toast.LENGTH_SHORT).show();
+                onBackPressed();
             }
         });
 
@@ -317,13 +303,6 @@ public class DiaryReadActivity extends DiaryActivity {
 
     }
 
-
-//    DR.child("Users").child(uid).child("Diary").child(date).child("diaryContent").addValueEventListener(new ValueEventListener() {
-//        @Override
-//        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//            String diaryContent = dataSnapshot.getValue(String.class);
-//            tvRead.setText(diaryContent);
-//        }
     public void readDiary() {
         DR.child("Users").child(uid).child("Diary").child(date).addValueEventListener(new ValueEventListener() {
             @Override
@@ -342,6 +321,9 @@ public class DiaryReadActivity extends DiaryActivity {
                         ivPic.setImageDrawable(reviewImage);
                     }
                 }
+                if (snapshot.getValue() == null) {
+                    Toast.makeText(DiaryReadActivity.this, "해당 날짜에 작성된 일기가 없습니다.", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -349,20 +331,6 @@ public class DiaryReadActivity extends DiaryActivity {
                 Log.e("DiaryReadActivity", String.valueOf(databaseError.toException())); // 에러문 출력
             }
         });
-
-//        DR.child("Users").child(uid).child("Diary").child(date).addValueEventListener(new ValueEventListener() {
-//            @Override public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                    if (dataSnapshot.getKey().equals("diaryImage")) {
-//                        String image = dataSnapshot.getValue().toString();
-//                        byte[] b = binaryStringToByteArray(image);
-//                        ByteArrayInputStream is = new ByteArrayInputStream(b);
-//                        Drawable reviewImage = Drawable.createFromStream(is, "reviewImage");
-//                        ivPic.setImageDrawable(reviewImage);
-//                    }
-//                }
-//            } @Override public void onCancelled(@NonNull DatabaseError error) { }
-//        });
     }
 
     // 스트링을 바이너리 바이트 배열로

@@ -91,6 +91,7 @@ public class DiaryWriteActivity extends DiaryActivity {
                 diaryContent = etWrite.getText().toString();
                 updateDiaryImage();
                 saveDiary();
+                finish();
             }
         });
 

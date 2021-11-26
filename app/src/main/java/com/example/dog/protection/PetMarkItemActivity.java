@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -167,46 +168,6 @@ public class PetMarkItemActivity extends PetMarkActivity{
         }
     }
 
-//    void kakaoLink2() {
-//        Map<String, String> androidExecutionParams = new HashMap<String, String>();
-//        androidExecutionParams.put("noticeNo", noticeNo);
-//        androidExecutionParams.put("kindCd", kindCd);
-//        androidExecutionParams.put("happenPlace", happenPlace);
-//        androidExecutionParams.put("happenDt", happenDt);
-//        androidExecutionParams.put("noticeDt", noticeDt);
-//        androidExecutionParams.put("careNm", careNm);
-//        androidExecutionParams.put("careAddr", careAddr);
-//        androidExecutionParams.put("specialMark", specialMark);
-//        androidExecutionParams.put("info", info);
-//        androidExecutionParams.put("careTel", careTel);
-//        String title = "괴발개발";
-//        String imageUrl = popfile;
-//        Link link = new Link(null, null, androidExecutionParams,null);
-//        String description = "괴발개발 앱에서 공고를 확인하세요!";
-//        int imageWidth = 300;
-//        int imageHeight = 300;
-//        Content content = new Content(title, imageUrl, link, description, imageWidth, imageHeight);
-//        String buttonTitle = "앱에서 확인";
-//
-//        DefaultTemplate defaultFeed = new FeedTemplate(content,null,null,null,buttonTitle);
-//
-//        if (LinkClient.getInstance().isKakaoLinkAvailable(this)) {
-//            LinkClient.getInstance().defaultTemplate(this, defaultFeed, (linkResult, error) -> {
-//                if (error != null) {
-//                    Log.e("KakaoLink", "Error");
-//                } else if (linkResult != null) {
-//                    Log.e("KakaoLink", "Success");
-//                    startActivity(linkResult.getIntent());
-//
-//                    Log.w("KakaoLink", "Warning Msg: ${linkResult.warningMsg}");
-//                    Log.w("KakaoLink", "Argument Msg: ${linkResult.argumentMsg");
-//                }
-//                return null;
-//            });
-//        }
-//    }
-
-
     private class popfileToImage extends AsyncTask<String, Void, Bitmap> {
 
         @Override
@@ -239,5 +200,7 @@ public class PetMarkItemActivity extends PetMarkActivity{
 
     public void deletePetMark(String noticeNo) {
         DR.child("Users").child(uid).child("PetMark").child(noticeNo).setValue(null);
+        Toast.makeText(PetMarkItemActivity.this, "관심 공고에서 삭제 되었습니다.",Toast.LENGTH_SHORT).show();
+        onBackPressed();
     }
 }
